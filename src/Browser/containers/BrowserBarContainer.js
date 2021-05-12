@@ -1,19 +1,25 @@
 import React from "react";
-import axios from 'axios'
+//import {useEffect, useState} from "react";
+import axios from 'axios';
+
 import {BrowserBarComponent} from '../components/BrowserBarComponent'
 
-const url = "/positions.json?description=api";
+const url ="/positions.json?description=api";
 export class BrowserBarContainer extends React.Component {
 
     constructor(props){
         super(props);
         this.state = {
-            datos : [],
-            result : []
+            datos: [],
+            result: []
         }
     }
 
-    componentDidMount() {
+    //hook, no se puede usar con clases
+    //const [getDatos, setDatos] = useState();
+
+    componentDidMount(){
+        //console.log("DidMount");
 
         axios.get(url)
         .then( (response) => {
@@ -25,30 +31,46 @@ export class BrowserBarContainer extends React.Component {
         })
     }
 
+    // useEffect( () => {
+    //     console.log("useEffect");
+
+    //     axios.get(url)
+    //     .then( (response) => {
+    //         //console.log(response.data);
+    //         setDatos(response.data);
+    //     })
+
+    //   });
+
     handleClick = () => {
 
-        const keyBoard = document.getElementById("ejemplo").value
+        //console.log("handleClick");
+        const keyword = document.getElementById("browserbar").value;
         const result = this.state.datos.filter( (item) => {
-            let searchBy = item.title.includes(keyBoard);
-            if (searchBy) {return searchBy}
+            
+            let searchBy = item.title.includes(keyword);
+            if(searchBy) {
+                return searchBy; 
+            }
             else {
-                searchBy = item.description.includes(keyBoard)
+                searchBy= item.description.includes(keyword);
                 return searchBy;
             }
         })
-        this.setState({
-            result: result
-        })
-
-    };
+        this.setState(
+            {
+                result: result
+            }
+        )
+    }
 
     render(){
-
-        return (
+        return(
             <>
                 <BrowserBarComponent result={this.state.result} handleClick={this.handleClick}></BrowserBarComponent>
+                
             </>
         );
-
     }
 }
+

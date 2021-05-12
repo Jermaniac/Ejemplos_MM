@@ -5,13 +5,13 @@ import {BrowserBarContainer} from '../src/Browser/containers/BrowserBarContainer
 
 export function App() {
   return (
-    <>
-      <div className="App">
+  <>
+    <div className="App">
         <CounterContainer initialValue={1}></CounterContainer>
-      </div>
-      <div>
-        <BrowserBarContainer></BrowserBarContainer>
-      </div>
-    </>
+    </div>
+    <div>
+      <BrowserBarContainer></BrowserBarContainer>
+    </div>
+  </>
   );
 }

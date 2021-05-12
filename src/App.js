@@ -1,7 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import {CounterContainer} from '../src/Counter/containers/CounterContainer'
 
-function App() {
+export function App() {
   return (
     <div className="App">
       <header className="App-header">
@@ -9,17 +10,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <CounterContainer initialValue={1}></CounterContainer>
       </header>
     </div>
   );
 }
-
-export default App;

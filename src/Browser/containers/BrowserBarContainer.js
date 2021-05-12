@@ -11,7 +11,8 @@ export class BrowserBarContainer extends React.Component {
         super(props);
         this.state = {
             datos: [],
-            result: []
+            result: [],
+            isLoading: true
         }
     }
 
@@ -25,7 +26,8 @@ export class BrowserBarContainer extends React.Component {
         .then( (response) => {
             this.setState(
                 {
-                    datos: response.data
+                    datos: response.data,
+                    isLoading: false
                 }
             )
         })
@@ -49,14 +51,12 @@ export class BrowserBarContainer extends React.Component {
         const result = this.state.datos.filter( (item) => {
             
             let searchBy = item.title.includes(keyword);
-            if(searchBy) {
-                return searchBy; 
-            }
-            else {
+            if(searchBy.length === 0) {
                 searchBy= item.description.includes(keyword);
-                return searchBy;
             }
+            return searchBy;
         })
+
         this.setState(
             {
                 result: result
@@ -65,6 +65,14 @@ export class BrowserBarContainer extends React.Component {
     }
 
     render(){
+        if(this.state.isLoading){
+            return(
+                <>
+                    <img alt="Spinner" src="../loading.gif"></img>
+                </>
+            )
+        }
+
         return(
             <>
                 <BrowserBarComponent result={this.state.result} handleClick={this.handleClick}></BrowserBarComponent>

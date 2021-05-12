@@ -1,17 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
 import {CounterContainer} from '../src/Counter/containers/CounterContainer'
+import {BrowserBarContainer} from '../src/Browser/containers/BrowserBarContainer'
+
 
 export function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
+    <>
+      <div className="App">
         <CounterContainer initialValue={1}></CounterContainer>
-      </header>
-    </div>
+      </div>
+      <div>
+        <BrowserBarContainer></BrowserBarContainer>
+      </div>
+    </>
   );
 }

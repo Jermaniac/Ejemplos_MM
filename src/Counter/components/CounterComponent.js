@@ -1,4 +1,4 @@
-
+// cambio de prueba javi94diaz
 export const CounterComponent = (props) => {
 
     const { getCounter, setCounter  } = props;

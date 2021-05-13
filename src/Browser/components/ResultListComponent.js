@@ -14,7 +14,7 @@ export const ResultListComponent = ({busqueda}) => {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{item.description}</td>
+                                        <td dangerouslySetInnerHTML={{__html: item.description}}></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -48,15 +48,21 @@ export class BrowserBarContainer extends React.Component {
 
         //console.log("handleClick");
         const keyword = document.getElementById("browserbar").value;
-        const result = this.state.datos.filter( (item) => {
-            
+
+        let result = this.state.datos.filter( (item) => {
             let searchBy = item.title.includes(keyword);
-            if(searchBy.length === 0) {
-                searchBy= item.description.includes(keyword);
-            }
             return searchBy;
         })
 
+        if (result.length === 0){
+            console.log("No se ha encontrado resultados en titulo, buscando por descripcion...")
+            result = this.state.datos.filter( (item) => {
+            
+                let searchBy = item.description.includes(keyword);
+                return searchBy;
+            })
+        }
+        
         this.setState(
             {
                 result: result

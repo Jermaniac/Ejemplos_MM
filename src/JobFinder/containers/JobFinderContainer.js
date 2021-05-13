@@ -7,6 +7,7 @@ import {JobFinderComponent} from "../../JobFinder/components/JobFinderComponent"
 import { Spinner } from "../../commons/components/Spinner";
 
 import {useDispatch,useSelector} from 'react-redux'
+import { filter_jobs } from "../../Redux/Actions/action";
 
 
 export const JobFinderContainer = () => {
@@ -15,12 +16,10 @@ export const JobFinderContainer = () => {
   
   // toda la logica se ejecuta para cada render/update
 
-  const dispatch =useDispatch();
-  const data = useSelector(state => state.your_reducers)
+  const data = useSelector(state => state.filter_jobs)
+  const dispatch = useDispatch()
   
   const handleClick = () => {
-
-    alert(data);
 
     const keyword = document.getElementById("browserbar").value;
 
@@ -36,6 +35,7 @@ export const JobFinderContainer = () => {
           return searchBy;
         })
     }
+    dispatch(filter_jobs(result))
     setFilteredJobs(result);
   }
 

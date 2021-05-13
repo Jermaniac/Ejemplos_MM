@@ -1,6 +1,6 @@
-import {ADD} from '../Types/types'
+import {ADD, FILTER_JOBS} from '../Types/types'
 
-export const add = (data) =>dispatch=>{
+export const add = (data) =>{
 
  return{
     type:ADD,
@@ -8,4 +8,14 @@ export const add = (data) =>dispatch=>{
      data
     }
  }
+}
+
+export const filter_jobs = (data) =>{
+
+   return{
+      type:FILTER_JOBS,
+      payload:{
+       data
+      }
+   }
 }

@@ -1,4 +1,4 @@
 import {combineReducers} from 'redux';
-import {your_reducers} from './Reducers/reducer'
+import {example_reducer, filter_jobs} from './Reducers/reducer'
 
-export default combineReducers({your_reducers});
+export default combineReducers({filter_jobs});

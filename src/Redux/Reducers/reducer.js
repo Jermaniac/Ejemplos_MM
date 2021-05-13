@@ -1,14 +1,19 @@
-import {ADD} from '../Types/types'
+import {ADD, FILTER_JOBS} from '../Types/types'
 
-export const your_reducers = (state=[],action) =>{
+export const example_reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD:
+      return [...action.payload.data];
+    default:
+      return state;
+  }
+};
 
-switch(action.type){
-
- case ADD : 
- return [   
-   ...action.payload.data
-        ]
- default: return state
-}
-
-}
+export const filter_jobs = (state = [], action) => {
+  switch (action.type) {
+    case FILTER_JOBS:
+      return [...action.payload.data];
+    default:
+      return state;
+  }
+};

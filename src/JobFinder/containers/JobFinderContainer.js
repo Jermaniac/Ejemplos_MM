@@ -36,12 +36,11 @@ export const JobFinderContainer = () => {
         })
     }
     dispatch(filter_jobs(result))
-    setFilteredJobs(result);
   }
 
   return (
     <>
-      <JobFinderComponent filteredJobs={filteredJobs} handleClick={handleClick} />
+      <JobFinderComponent filteredJobs={data} handleClick={handleClick} />
 
       {isFetchingJobs && <Spinner />}
     </>

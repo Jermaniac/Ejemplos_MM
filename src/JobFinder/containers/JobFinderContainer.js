@@ -6,14 +6,22 @@ import {JobFinderComponent} from "../../JobFinder/components/JobFinderComponent"
 
 import { Spinner } from "../../commons/components/Spinner";
 
+import {useDispatch,useSelector} from 'react-redux'
+
+
 export const JobFinderContainer = () => {
   const { jobs, isFetchingJobs, filteredJobs, setFilteredJobs } = useJobFinder(); //saca las propriedades. no va por orden, va por nombre
   // const { jobs, isFetchingJobs, ...otherObjects } = useJobFinder(); 
-
+  
   // toda la logica se ejecuta para cada render/update
 
+  const dispatch =useDispatch();
+  const data = useSelector(state => state.your_reducers)
+  
   const handleClick = () => {
-    //console.log("handleClick");
+
+    alert(data);
+
     const keyword = document.getElementById("browserbar").value;
 
     let result = jobs.filter( (item) => {

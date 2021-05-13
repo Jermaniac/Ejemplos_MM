@@ -7,11 +7,10 @@ export const useJobFinder = () => {
   const [isFetchingJobs, setIsFetchingJobs] = useState(false);
   const [filteredJobs, setFilteredJobs] = useState([]);
 
-  // TEORIA 
-
-  //setJobs() => setState()
-  //jobs = state.jobs
-  /*
+  /* // TEORIA
+  setJobs() => setState()
+  jobs = state.jobs
+  
   useEffect(() => {
     //callback
   }, [props]); // se modifica cada vez que cambian las props
@@ -36,8 +35,5 @@ export const useJobFinder = () => {
     isFetchingJobs,
     filteredJobs,
     setFilteredJobs
-    // x: 2,
-    // y: 12,
-    // name: 123,
   };
 };

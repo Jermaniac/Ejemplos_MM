@@ -1,7 +1,7 @@
 import { ResultListContainer } from "../containers/ResultListContainer";
 
-export const BrowserBarComponent = (props) => {
-  const { result, handleClick } = props;
+export const JobFinderComponent = (props) => {
+  const { filteredJobs , handleClick } = props;
 
   const wrapperStyle = {
     width: "50%",
@@ -12,7 +12,7 @@ export const BrowserBarComponent = (props) => {
     <div style={wrapperStyle}>
       <input type="text" id="browserbar"></input>
       <button onClick={handleClick}>SEARCH</button>
-      <ResultListContainer busqueda={result}></ResultListContainer>
+      <ResultListContainer busqueda={filteredJobs}></ResultListContainer>
     </div>
   );
 };

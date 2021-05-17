@@ -5,7 +5,7 @@ import {App} from './App';
 import {Provider} from "react-redux";
 import store from "../src/Redux/Store";
 import reportWebVitals from './reportWebVitals';
-
+// Comentario para probar rama feat/mailApp
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>

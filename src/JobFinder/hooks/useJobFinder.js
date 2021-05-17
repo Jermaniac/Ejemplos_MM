@@ -1,17 +1,21 @@
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 import { fetchJobs } from "../services/jobFinder.service";
+
+import { selectJobs, selectMappedJobs } from "../store/jobFinder.selectors";
 
 export const useJobFinder = () => {
   const [jobs, setJobs] = useState([]);
   const [isFetchingJobs, setIsFetchingJobs] = useState(false);
-  const [filteredJobs, setFilteredJobs] = useState([]);
 
-  // TEORIA 
+  const filteredJobs = useSelector(selectJobs);
+  const mappedJobs = useSelector(selectMappedJobs);
 
-  //setJobs() => setState()
-  //jobs = state.jobs
-  /*
+  /* // TEORIA
+  setJobs() => setState()
+  jobs = state.jobs
+
   useEffect(() => {
     //callback
   }, [props]); // se modifica cada vez que cambian las props
@@ -19,7 +23,6 @@ export const useJobFinder = () => {
 
   // Este useEffect hace la llamada a la api
   useEffect(() => {
-
     const initFetchJobs = async () => {
       setIsFetchingJobs(true);
       const fetchedJobs = await fetchJobs();
@@ -28,16 +31,12 @@ export const useJobFinder = () => {
     };
 
     initFetchJobs();
-
   }, []); //  = componentDidMount
 
   return {
     jobs,
     isFetchingJobs,
     filteredJobs,
-    setFilteredJobs
-    // x: 2,
-    // y: 12,
-    // name: 123,
+    mappedJobs,
   };
 };

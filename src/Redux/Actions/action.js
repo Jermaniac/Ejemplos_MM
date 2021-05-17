@@ -1,4 +1,4 @@
-import {ADD, FILTER_JOBS} from '../Types/types'
+import {ADD, FILTER_JOBS} from '../Reducers/reducer'
 
 export const add = (data) =>{
 

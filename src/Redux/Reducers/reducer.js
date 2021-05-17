@@ -1,4 +1,7 @@
-import {ADD, FILTER_JOBS} from '../Types/types'
+export const ADD="ADD";
+export const SHOW ="SHOW"
+
+export const FILTER_JOBS = "FILTER_JOBS"
 
 export const example_reducer = (state = [], action) => {
   switch (action.type) {

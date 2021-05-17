@@ -6,9 +6,8 @@ import { JobFinderComponent } from "../../JobFinder/components/JobFinderComponen
 
 import { Spinner } from "../../commons/components/Spinner";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { filter_jobs } from "../../Redux/Actions/action";
-import { selectJobs } from "../store/jobFinder.selectors";
 
 export const JobFinderContainer = () => {
   const { jobs, isFetchingJobs, filteredJobs, mappedJobs } = useJobFinder(); //saca las propriedades. no va por orden, va por nombre
@@ -20,6 +19,7 @@ export const JobFinderContainer = () => {
   // const data = useSelector(selectJobs);
   const dispatch = useDispatch();
 
+  // Ejemplo donde hemos mapeado los jobs y les hemos cambiado el nombre a title por titulo
   console.log(mappedJobs);
   const handleClick = () => {
     const keyword = document.getElementById("browserbar").value;

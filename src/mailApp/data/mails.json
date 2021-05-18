@@ -3,15 +3,21 @@
    [
    {
    "id":0,
-   "title":"Example1",
-   "author":"feynman",
+   "title":"[Meeting with the Feynman friend]",
+   "author":"feynman@myfriend.com",
    "message":"Meet me at 10 p.m."
    },
    {
    "id":1,
    "title":"[IMPORTANT]: Update your CV",
-   "author":"Peter",
-   "message":"Please, update your CV asap or you will be fired."
+   "author":"peter@capgemini.es",
+   "message":"Please, update your CV asap or you will be fired. Final warning."
+   },
+   {
+   "id":2,
+   "title":"[Capgemini]: New courses in MyLearning",
+   "author":"rrhh@capgemini.com",
+   "message":"Courses in MyLearning platform have been recently updated. Please take a look at them."
    }
    ],
    "sent":

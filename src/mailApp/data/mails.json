@@ -1,11 +1,23 @@
 {
- "recibidos": 
-    [
-    ],
- "enviados": 
-    [
-    ],
- "borrados": 
-    [
-    ]
+   "received":
+   [
+   {
+   "id":0,
+   "title":"Example1",
+   "author":"feynman",
+   "message":"Meet me at 10 p.m."
+   },
+   {
+   "id":1,
+   "title":"[IMPORTANT]: Update your CV",
+   "author":"Peter",
+   "message":"Please, update your CV asap or you will be fired."
+   }
+   ],
+   "sent":
+   [
+   ],
+   "deleted":
+   [
+   ]
 }

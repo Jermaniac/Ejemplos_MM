@@ -1,23 +1,16 @@
-
 import {InboxComponent} from "../components/InboxComponent"
+
+import {Spinner} from "../../commons/components/Spinner"
+
+import {useMailApp} from '../hooks/useMailApp'
 
 export const InboxContainer = () => {
 
-    const allMessages = [
-        {
-            title: "mensaje1",
-            author: "miprimo"
-        },
-        {
-            title: "mensaje2",
-            author: "miprima"
-         }
-    ];
-                   
-
+    const { allMailsReceived } = useMailApp();
     return(
         <>
-            <InboxComponent allMessages={allMessages}></InboxComponent>
+            <InboxComponent allMailsReceived={allMailsReceived.mails}></InboxComponent>
+            {allMailsReceived.pending && <Spinner/>}
         </>
     )
 

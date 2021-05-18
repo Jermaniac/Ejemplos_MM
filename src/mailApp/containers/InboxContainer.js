@@ -2,11 +2,9 @@ import {InboxComponent} from "../components/InboxComponent"
 
 import {Spinner} from "../../commons/components/Spinner"
 
-import {useMailApp} from '../hooks/useMailApp'
 import { ViewerContainer } from "./ViewerContainer";
 
-export const InboxContainer = () => {
-    const { allMailsReceived, mailSelected, setMailSelected } = useMailApp();
+export const InboxContainer = ({ allMailsReceived, mailSelected, setMailSelected }) => {
 
     const handleClick = (mailId) => {
         const mail = allMailsReceived.mails.find( (item) => item.id === mailId );

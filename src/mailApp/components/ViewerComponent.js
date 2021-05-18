@@ -1,9 +1,8 @@
 
-export const ViewerComponent = ({mailSelected}) => {
-
-  const wrapperStyle = {
+const wrapperStyle = {
     border: "1 px black solid",
-  };
+};
+export const ViewerComponent = ({mailSelected}) => {
 
     if (mailSelected){
         return (

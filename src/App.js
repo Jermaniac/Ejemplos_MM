@@ -1,15 +1,20 @@
 import "./App.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { InboxContainer } from "../src/mailApp/containers/InboxContainer";
-import { SenderContainer } from "../src/mailApp/containers/SenderContainer";
+import { MailAppContainer } from "../src/mailApp/containers/MailAppContainer";
 
-// rama de reduxExample
+// TO DO:
+
+// MATERIAL UI -> en otra rama | sustituir bootstrap | MakeStyles
+// Crear contenedor grande/general
+// toogle sender
+// Modificar estilos? -> constantes
+
+
 export function App() {
   return (
     <>
-      <InboxContainer />
-      <SenderContainer />
+      <MailAppContainer/>
     </>
   );
 }

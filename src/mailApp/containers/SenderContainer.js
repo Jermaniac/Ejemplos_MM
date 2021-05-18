@@ -1,10 +1,6 @@
 import { SenderComponent } from "../components/SenderComponent"
-import {useMailApp} from '../hooks/useMailApp'
 
-
-export const SenderContainer = () => {
-
-    const { isOpen, setOpen} = useMailApp();
+export const SenderContainer = ({ isOpen, setOpen}) => {
 
     const onClose = () => {
         setOpen(!isOpen);

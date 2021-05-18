@@ -5,24 +5,38 @@ import { selectMailsReceived } from "../store/mailApp.selectors";
 
 import { fetchMailsReceived } from "../services/mailApp.services";
 
+import {
+  fetchMailsError,
+  fetchMailsPending,
+  fetchMailsSuccess,
+} from "../store/mailApp.actions";
+
 export const useMailApp = () => {
   const allMailsReceived = useSelector(selectMailsReceived);
-  const [ mailSelected, setMailSelected ] = useState();
-  const [ isOpen, setOpen ] = useState(false);
+  // MAILSELECTED DENTRO DE REDUX (???)
+  const [mailSelected, setMailSelected] = useState();
+  const [isOpen, setOpen] = useState(false);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     const initFetchMails = async () => {
-      await fetchMailsReceived(dispatch);
+      dispatch(fetchMailsPending());
+      const emailsReceivedFetched = await fetchMailsReceived();
+      if (emailsReceivedFetched.length > 0) {
+        dispatch(fetchMailsSuccess(emailsReceivedFetched));
+      } else {
+        dispatch(fetchMailsError(emailsReceivedFetched));
+      }
     };
     initFetchMails();
-  }, []); // = componentDidMount
+  }, [dispatch]); // = componentDidMount
 
   return {
     allMailsReceived,
     mailSelected,
     setMailSelected,
     isOpen,
-    setOpen
+    setOpen,
   };
-};
+};;

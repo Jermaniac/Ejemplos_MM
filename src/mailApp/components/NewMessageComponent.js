@@ -1,9 +1,9 @@
 
-export const SenderComponent = ({show, onClose}) => {
+export const NewMessageComponent = ({show, toggleShowSender}) => {
 
         return (
           <div>
-            <button onClick={() => onClose()}>Send an email</button>
+            <button onClick={() => toggleShowSender()}>New message</button>
             {show && (
               <>
                   <form>

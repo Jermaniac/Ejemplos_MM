@@ -4,12 +4,14 @@ const urlMailReceived = "http://localhost:3000/received";
 // const urlMailSent = "http://localhost:3000/sent";
 // const urlMailDeleted = "http://localhost:3000/deleted";
 
-// AQUI NO VA DISPATCH. MAL!!!!!
+// aqui se hace la peticion http y devolvera los mails o un error
 export const fetchMailsReceived = () => {
-  return axios
+  return (
+    axios
     .get(urlMailReceived)
-    .then((response) => response.data)
-    .catch((error) => error );
+    .then( (response) => response.data )
+    .catch( (error) => error )
+  )
 };
 
 // export const fetchMailsSent = () => axios.get(urlMailSent).then((response) => response.data);

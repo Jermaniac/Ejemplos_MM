@@ -10,6 +10,7 @@ import {
     error: null
   }
 
+  // en funcion de la accion, el reducer cambia el estado general de Redux
   export const fetchMailsReceived = (state = initialState, action) => {
     switch (action.type) {
       case FETCH_MAILS_PENDING:

@@ -1,17 +1,18 @@
-import {useMailApp} from '../hooks/useMailApp'
-import {InboxContainer} from '../containers/InboxContainer'
-import {SenderContainer} from '../containers/SenderContainer'
+import { InboxContainer } from "../../mailApp/containers/InboxContainer";
+import { NewMessageContainer } from "./NewMessageContainer";
 
-export function MailAppContainer() {
-    const { allMailsReceived, mailSelected, setMailSelected, isOpen, setOpen } = useMailApp();
+import {useMailApp} from '../hooks/useMailApp'
+
+// Contenedor principal del resto de componentes. Se encarga de llamar al custom hook global
+export const MailAppContainer = () => {
+    
+    const { allMailsReceived, mailSelected, setMailSelected, isOpen, setOpen} = useMailApp();
 
     return (
-      <>
-        <InboxContainer allMailsReceived={allMailsReceived}
-        mailSelected={mailSelected}
-        setMailSelected={setMailSelected}
-        />
-        <SenderContainer isOpen={isOpen} setOpen={setOpen}/>
-      </>
-    );
-  }
+        <>
+            <InboxContainer allMailsReceived={allMailsReceived} mailSelected={mailSelected} setMailSelected={setMailSelected}/>
+            <NewMessageContainer isOpen={isOpen} setOpen={setOpen}/>
+        </>
+    )
+        
+}

@@ -12,12 +12,12 @@ export const useMailApp = () => {
   const [ mailSelected, setMailSelected ] = useState();
   const [ isOpen, setOpen ] = useState(false);
   const [ filledForm, setFilledForm ] = useState({
-    id: '',
-    title: '',
-    author:'',
-    receiver:'',
-    message: ''
-  }
+      id: '',
+      title: '',
+      author:'',
+      receiver:'',
+      message: ''
+    }
   );
 
   // Es un hook que ejecuta las acciones definidas en actions.js

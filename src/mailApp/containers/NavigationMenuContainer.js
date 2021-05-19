@@ -27,18 +27,9 @@ export const NavigationMenuContainer = () => {
     //const classes = useStyles();
 
     return(
-        <ButtonGroup /*className = {classes.root}*/
-            orientation="vertical"
-            color="primary"
-            aria-label="vertical outlined primary button group"
-            variant="contained"
-        >
-            <Button style={newMessageStyle}>New Message</Button>
-            <Button style={buttonStyle}>Inbox</Button>
-            <Button style={buttonStyle}>Sent</Button>
-            <Button style={buttonStyle}>Trash</Button>
-            <Button style={buttonStyle}>Archive</Button>
-        </ButtonGroup>
+        <div>HOLA</div>
+
+
     )
 
 }

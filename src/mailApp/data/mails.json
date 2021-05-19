@@ -1,20 +1,6 @@
 {
    "received":
    [
-<<<<<<< HEAD
-      {
-      "id":0,
-      "title":"Example1",
-      "author":"feynman",
-      "message":"Meet me at 10 p.m."
-      },
-      {
-      "id":1,
-      "title":"[IMPORTANT]: Update your CV",
-      "author":"Peter",
-      "message":"Please, update your CV asap or you will be fired."
-      }
-=======
    {
    "id":0,
    "title":"[Meeting with the Feynman friend]",
@@ -33,7 +19,6 @@
    "author":"rrhh@capgemini.com",
    "message":"Courses in MyLearning platform have been recently updated. Please take a look at them."
    }
->>>>>>> dc625a6013634043f0e5c0c731d0cd6714ce5ba0
    ],
    "sent":
    [

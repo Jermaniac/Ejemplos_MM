@@ -1,5 +1,7 @@
 import { NewMessageComponent } from "../components/NewMessageComponent"
 import {sendMailToReceived} from '../services/mailApp.services'
+
+
 export const NewMessageContainer = ({isOpen, setOpen, filledForm, setFilledForm}) => {
 
     const toggleShowSender = () => {

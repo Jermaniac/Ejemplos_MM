@@ -1,9 +1,15 @@
+import Button from '@material-ui/core/Button';
+
+const wrapperStyle ={
+  color: "black",
+  background: "lightblue"
+}
 
 export const NewMessageComponent = ({show, toggleShowSender, onFormChange, handleSendEmail}) => {
 
         return (
           <div>
-            <button onClick={() => toggleShowSender()}>New message</button>
+            <Button style={wrapperStyle} variant="contained" onClick={() => toggleShowSender()}>New message</Button>
             {show && (
               <>
                   <form onSubmit={handleSendEmail}>

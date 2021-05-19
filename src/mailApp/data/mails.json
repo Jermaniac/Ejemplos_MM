@@ -20,6 +20,13 @@
       "author": "rrhh@capgemini.com",
       "receiver": "me",
       "message": "Courses in MyLearning platform have been recently updated. Please take a look at them."
+    },
+    {
+      "id": 3,
+      "title": "Material UI",
+      "author": "Me",
+      "receiver": "german@capgemini.es",
+      "message": "Incredible styles coming"
     }
   ],
   "sent": [],

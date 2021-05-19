@@ -1,17 +1,29 @@
 
-export const NewMessageComponent = ({show, toggleShowSender}) => {
+export const NewMessageComponent = ({show, toggleShowSender, onFormChange, handleSendEmail}) => {
 
         return (
           <div>
             <button onClick={() => toggleShowSender()}>New message</button>
             {show && (
               <>
-                  <form>
+                  <form onSubmit={handleSendEmail}>
                     <label>
-                      Title:
-                      <input type="text" name="title" />
+                      <input id="receiver" type="text" placeholder="To" name="receiver" onChange={onFormChange}/>
                     </label>
-                    <input type="submit" value="Submit" />
+                    <br/>
+                    <label>
+                      <input id="author" type="text" placeholder="From" name="author" onChange={onFormChange}/>
+                    </label>
+                    <br/>
+                    <label>
+                      <input id="title" type="text" placeholder="Title" name="title" onChange={onFormChange}/>
+                    </label>
+                    <br/>
+                    <label>
+                      <textarea id="message" rows="4" cols="25" name="message" placeholder="Type your message..." onChange={onFormChange}/>
+                    </label>
+                    <br/>
+                    <input type="submit" value="Submit" ></input>
                   </form>
               </>
             )}

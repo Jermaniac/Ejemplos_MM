@@ -6,7 +6,7 @@ import { ViewerContainer } from "./ViewerContainer";
 
 // Componente que muestra la lista de correos en la Inbox
 export const InboxContainer = ({allMailsReceived, mailSelected, setMailSelected}) => {
-    
+
     // En la lista de emails recibidos, busca uno por id para marcarlo como "seleccionado" y mostrarlo en el viewer
     const handleClick = (mailId) => {
         const mail = allMailsReceived.mails.find( (item) => item.id === mailId );

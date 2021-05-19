@@ -1,29 +1,27 @@
 {
-   "received":
-   [
-   {
-   "id":0,
-   "title":"[Meeting with the Feynman friend]",
-   "author":"feynman@myfriend.com",
-   "message":"Meet me at 10 p.m."
-   },
-   {
-   "id":1,
-   "title":"[IMPORTANT]: Update your CV",
-   "author":"peter@capgemini.es",
-   "message":"Please, update your CV asap or you will be fired. Final warning."
-   },
-   {
-   "id":2,
-   "title":"[Capgemini]: New courses in MyLearning",
-   "author":"rrhh@capgemini.com",
-   "message":"Courses in MyLearning platform have been recently updated. Please take a look at them."
-   }
-   ],
-   "sent":
-   [
-   ],
-   "deleted":
-   [
-   ]
+  "received": [
+    {
+      "id": 0,
+      "title": "[Meeting with the Feynman friend]",
+      "author": "feynman@myfriend.com",
+      "receiver": "me",
+      "message": "Meet me at 10 p.m."
+    },
+    {
+      "id": 1,
+      "title": "[IMPORTANT]: Update your CV",
+      "author": "peter@capgemini.es",
+      "receiver": "me",
+      "message": "Please, update your CV asap or you will be fired. Final warning."
+    },
+    {
+      "id": 2,
+      "title": "[Capgemini]: New courses in MyLearning",
+      "author": "rrhh@capgemini.com",
+      "receiver": "me",
+      "message": "Courses in MyLearning platform have been recently updated. Please take a look at them."
+    }
+  ],
+  "sent": [],
+  "deleted": []
 }

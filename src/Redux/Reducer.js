@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { fetchMailsReceived } from "../mailApp/store/mailApp.reducers";
+import { fetchMailsReceived, fetchMailsSent } from "../mailApp/store/mailApp.reducers";
 
-export default combineReducers({ fetchMailsReceived });
+export default combineReducers({ fetchMailsReceived, fetchMailsSent });

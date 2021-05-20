@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectMailsReceived } from "../store/mailApp.selectors";
+import { selectMailsReceivedMemoized,selectMailsReceived, selectMailsSent } from "../store/mailApp.selectors";
 
-import { fetchMailsReceived } from "../services/mailApp.services";
-import { fetchMailsPending, fetchMailsSuccess, fetchMailsError } from "../store/mailApp.actions";
+import { fetchMailsReceived, fetchMailsSent } from "../services/mailApp.services";
+import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceivedError, fetchMailsSentError, fetchMailsSentPending, fetchMailsSentSuccess } from "../store/mailApp.actions";
 
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
   const allMailsReceived = useSelector(selectMailsReceived); // Hook para acceder a redux con un selector
+
+  const allMailsSent = useSelector(selectMailsSent);
+
+  useSelector(selectMailsReceivedMemoized); // Hook para ordenar lista
+
   const [ mailSelected, setMailSelected ] = useState();
-  const [ isOpen, setOpen ] = useState(false);
+  const [ isSubmit, setSubmit] = useState(false);
   const [ filledForm, setFilledForm ] = useState({
       id: '',
       title: '',
@@ -25,27 +30,30 @@ export const useMailApp = () => {
 
   useEffect(() => {
     const initFetchMails = async () => {
-      dispatch(fetchMailsPending()); // ejecuta la accion de pending
+      dispatch(fetchMailsReceivedPending()); // ejecuta la accion de pending
+      dispatch(fetchMailsSentPending())
       const fetchResult = await fetchMailsReceived(); // llamamos al servicio
-
+      const fetchResultSent = await fetchMailsSent();
+      dispatch(fetchMailsSentSuccess(fetchResultSent))
       //En funcion del resultado de la peticion http, ejecutamos una accion u otra
       if (fetchResult.length > 0){
-        dispatch(fetchMailsSuccess(fetchResult));
+        dispatch(fetchMailsReceivedSuccess(fetchResult));
       }
       else{
-        dispatch(fetchMailsError(fetchResult));
+        dispatch(fetchMailsReceivedError(fetchResult));
       }
 
     };
     initFetchMails();
-  }, [dispatch]);
+  }, [isSubmit , dispatch]);
 
   return {
     allMailsReceived,
+    allMailsSent,
     mailSelected,
     setMailSelected,
-    isOpen,
-    setOpen,
+    isSubmit,
+    setSubmit,
     filledForm,
     setFilledForm
   };

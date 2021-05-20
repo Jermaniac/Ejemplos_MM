@@ -30,19 +30,62 @@
     },
     {
       "id": 4,
-      "title": "Hi",
-      "author": "German",
-      "receiver": "feynman",
-      "message": "HOLA"
+      "title": "",
+      "author": "",
+      "receiver": "",
+      "message": ""
     },
     {
       "id": 5,
-      "title": "Urgente2",
-      "author": "me",
-      "receiver": "ti",
-      "message": "Esto es muy urgente"
+      "title": "",
+      "author": "",
+      "receiver": "",
+      "message": ""
+    },
+    {
+      "id": 6,
+      "title": "",
+      "author": "",
+      "receiver": "",
+      "message": ""
+    },
+    {
+      "id": 7,
+      "title": "",
+      "author": "",
+      "receiver": "",
+      "message": ""
+    },
+    {
+      "id": 8,
+      "title": "LOOL",
+      "author": "",
+      "receiver": "",
+      "message": ""
+    },
+    {
+      "id": 9,
+      "title": "XD",
+      "author": "",
+      "receiver": "",
+      "message": ""
+    },
+    {
+      "id": 10,
+      "title": "",
+      "author": "",
+      "receiver": "",
+      "message": ""
     }
   ],
-  "sent": [],
+  "sent": [
+    {
+      "id": 0,
+      "title": "PRUEBA",
+      "author": "PRUEBA",
+      "receiver": "PRUEBA",
+      "message": "PRUEBA"
+    }
+  ],
   "deleted": []
 }

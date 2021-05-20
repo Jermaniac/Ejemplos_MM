@@ -1,7 +1,5 @@
 import {InboxComponent} from "../components/InboxComponent"
 
-import {Spinner} from "../../commons/components/Spinner"
-
 
 // Componente que muestra la lista de correos en la Inbox
 export const InboxContainer = ({allMailsReceived, setMailSelected}) => {
@@ -14,13 +12,8 @@ export const InboxContainer = ({allMailsReceived, setMailSelected}) => {
 
     // Se pinta la lista de emails y si no hay recibidos, sale el spinner
     return(
-        <>
-            {allMailsReceived.mails.length > 0 &&
-                <InboxComponent allMailsReceived={allMailsReceived.mails}
-                handleClick={handleClick}/>
-            }
-            {allMailsReceived.pending && <Spinner/>}
-        </>
+            <InboxComponent allMailsReceived={allMailsReceived.mails}
+            handleClick={handleClick}/>
     )
 
 }

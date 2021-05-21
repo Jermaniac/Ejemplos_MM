@@ -27,6 +27,13 @@
       "author": "Me",
       "receiver": "german@capgemini.es",
       "message": "Incredible styles coming"
+    },
+    {
+      "id": 4,
+      "title": "Titulo",
+      "author": "JAavi",
+      "receiver": "german@capgemini.es",
+      "message": "mensaje3"
     }
   ],
   "sent": [],

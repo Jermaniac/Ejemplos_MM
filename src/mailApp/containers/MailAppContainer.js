@@ -8,8 +8,10 @@ export const MailAppContainer = () => {
 
     const { allMailsReceived,
       allMailsSent,
-      mailSelected,
-      setMailSelected,
+      mailReceivedSelected,
+      setMailReceivedSelected,
+      mailSentSelected,
+      setMailSentSelected,
       isSubmit,
       setSubmit,
       filledForm,
@@ -19,8 +21,10 @@ export const MailAppContainer = () => {
         <MailAppComponent
         allMailsReceived={allMailsReceived}
         allMailsSent={allMailsSent}
-        mailSelected={mailSelected}
-        setMailSelected={setMailSelected}
+        mailReceivedSelected={mailReceivedSelected}
+        setMailReceivedSelected={setMailReceivedSelected}
+        mailSentSelected={mailSentSelected}
+        setMailSentSelected={setMailSentSelected}
         isSubmit={isSubmit}
         setSubmit={setSubmit}
         filledForm={filledForm}

@@ -1,5 +1,5 @@
 
-export const NewMessageComponent = ({show, toggleShowSender, onFormChange, handleSendEmail}) => {
+export const NewMessageComponent = ({ onFormChange, handleSendEmail}) => {
 
         return (
           <>
@@ -49,6 +49,4 @@ export const NewMessageComponent = ({show, toggleShowSender, onFormChange, handl
             </form>
           </>
         );
-
-
 }

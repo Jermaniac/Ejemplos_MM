@@ -8,3 +8,8 @@ export const selectMailsReceivedMemoized = createSelector([selectMailsReceived],
     mails.mails?.reverse()
     )
 })
+
+export const selectMailsSentMemoized = createSelector([selectMailsSent], (mails) => {(
+    mails.mails?.reverse()
+    )
+})

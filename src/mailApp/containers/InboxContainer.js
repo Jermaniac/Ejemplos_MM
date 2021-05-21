@@ -12,8 +12,12 @@ export const InboxContainer = ({allMailsReceived, setMailSelected}) => {
 
     // Se pinta la lista de emails y si no hay recibidos, sale el spinner
     return(
-            <InboxComponent allMailsReceived={allMailsReceived.mails}
+        <>
+            <InboxComponent
+            allMailsReceived={allMailsReceived.mails}
             handleClick={handleClick}/>
+        </>
+
     )
 
 }

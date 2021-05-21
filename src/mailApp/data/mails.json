@@ -24,8 +24,8 @@
     {
       "id": 3,
       "title": "Material UI",
-      "author": "Me",
-      "receiver": "german@capgemini.es",
+      "author": "german@capgemini.es",
+      "receiver": "me",
       "message": "Incredible styles coming"
     }
   ],
@@ -36,6 +36,55 @@
       "author": "PRUEBA",
       "receiver": "PRUEBA",
       "message": "PRUEBA"
+    },
+    {
+      "id": 1,
+      "title": "Material UI",
+      "author": "",
+      "receiver": "german@capgemini.es",
+      "message": "Lets go"
+    },
+    {
+      "id": 2,
+      "title": "Mis pros",
+      "author": "Javi",
+      "receiver": "Alberto",
+      "message": "Lo que has hecho, no, Lo ,que no has hecho"
+    },
+    {
+      "id": 3,
+      "title": "ejemplo",
+      "author": "yo",
+      "receiver": "miprimo",
+      "message": "va venga"
+    },
+    {
+      "id": 4,
+      "title": "EL ultimo",
+      "author": "German",
+      "receiver": "Javi@gmail.com",
+      "message": "Este es el ultimo"
+    },
+    {
+      "id": 5,
+      "title": "ejemplo3",
+      "author": "remitente",
+      "receiver": "destinatario",
+      "message": "asdasdasdf"
+    },
+    {
+      "id": 6,
+      "title": "ejemplo3",
+      "author": "asdf",
+      "receiver": "Javi@gmail.com",
+      "message": "asdfasdfa"
+    },
+    {
+      "id": 7,
+      "title": "asdfdfa",
+      "author": "asdfadsf",
+      "receiver": "asdfasdf",
+      "message": "asdfasdfasdf"
     }
   ],
   "deleted": []

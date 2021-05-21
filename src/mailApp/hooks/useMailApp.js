@@ -8,10 +8,10 @@ import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceive
 
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
-  const allMailsReceived = useSelector(selectMailsReceived); // Hook para acceder a redux con un selector
-  const allMailsSent = useSelector(selectMailsSent);
-  useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
-  useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
+  const allMailsReceived = useSelector(selectMailsReceivedMemoized); // Hook para acceder a redux con un selector
+  const allMailsSent = useSelector(selectMailsSentMemoized);
+ // useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
+  //useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();
@@ -28,30 +28,58 @@ export const useMailApp = () => {
   // Es un hook que ejecuta las acciones definidas en actions.js
   const dispatch = useDispatch();
 
+  // Hook para el ciclo de vida de los componentes (Equivalente a componentDidMount)
+  // Lo que hace es un Get a la bandeja de recibidos y enviados
   useEffect(() => {
-    const initFetchMails = async () => {
+    const initFetchAllMails = async () => {
+
       dispatch(fetchMailsReceivedPending()); // ejecuta la accion de pending
       dispatch(fetchMailsSentPending())
+
       const fetchResultReceived = await fetchMailsReceived(); // llamamos al servicio
       const fetchResultSent = await fetchMailsSent();
-      //En funcion del resultado de la peticion http, ejecutamos una accion u otra
+
+      //En funcion del resultado de la peticion http para recibidos, ejecutamos una accion u otra
       if (fetchResultReceived.length > 0){
         dispatch(fetchMailsReceivedSuccess(fetchResultReceived));
-      }
-      if (fetchResultSent.length > 0 ){
-        dispatch(fetchMailsSentSuccess(fetchResultSent))
       }
       if (fetchResultReceived.length === 0) {
         dispatch(fetchMailsReceivedError(fetchResultReceived));
       }
-      if(fetchResultSent.length === 0){
-        dispatch(fetchMailsSentError(fetchResultReceived));
+
+      //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
+      if (fetchResultSent.length > 0 ){
+        dispatch(fetchMailsSentSuccess(fetchResultSent))
       }
-
+      if(fetchResultSent.length === 0){
+        dispatch(fetchMailsSentError(fetchResultSent));
+      }
     };
-    initFetchMails();
-  }, [isSubmit , dispatch]);
+    initFetchAllMails();
+  }, []);
 
+  // Se ejecuta cada vez que enviemos un nuevo mail (cada vez que isSubmit cambia), y va a Enviados
+  useEffect(() => {
+    const initFetchSentMails = async () => {
+
+       // ejecuta la accion de pending
+      dispatch(fetchMailsSentPending())
+
+       // llamamos al servicio
+      const fetchResultSent = await fetchMailsSent();
+      
+      //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
+      if (fetchResultSent.length > 0 ){
+        dispatch(fetchMailsSentSuccess(fetchResultSent))
+      }
+      if(fetchResultSent.length === 0){
+        dispatch(fetchMailsSentError(fetchResultSent));
+      }
+    };
+    //Finalmente lo llamamos
+    initFetchSentMails();
+  }, [isSubmit, dispatch]);
+  
   return {
     allMailsReceived,
     allMailsSent,

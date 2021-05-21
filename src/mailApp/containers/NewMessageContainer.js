@@ -2,15 +2,17 @@ import { NewMessageComponent } from "../components/NewMessageComponent"
 import {sendMailToReceived} from '../services/mailApp.services'
 
 
-export const NewMessageContainer = ({isOpen, setOpen, filledForm, setFilledForm}) => {
+export const NewMessageContainer = ({isSubmit, setSubmit, filledForm, setFilledForm}) => {
 
-    const toggleShowSender = () => {
-        setOpen(!isOpen);
-    }
+    // const toggleShowSender = () => {
+    //     setOpen(!isOpen);
+    // }
 
-    const handleSendEmail = () => {
-      console.log(filledForm)
-      sendMailToReceived(filledForm)
+    const handleSendEmail = (event) => {
+      event.preventDefault();
+      sendMailToReceived(filledForm);
+      setSubmit(!isSubmit);
+      alert("Email sent!")
     }
 
     const onFormChange = (event) => {
@@ -22,8 +24,9 @@ export const NewMessageContainer = ({isOpen, setOpen, filledForm, setFilledForm}
 
     return (
       <>
-        <NewMessageComponent show={isOpen}
-        toggleShowSender={toggleShowSender}
+        <NewMessageComponent
+        // show={isOpen}
+        // toggleShowSender={toggleShowSender}
         handleSendEmail={handleSendEmail}
         onFormChange={onFormChange}/>
       </>

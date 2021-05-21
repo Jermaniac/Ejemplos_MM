@@ -1,10 +1,6 @@
 import Card  from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 
-const wrapperStyle = {
-    border: "1px solid black",
-};
-
 export const ViewerComponent = ({mailSelected}) => {
 
   return (

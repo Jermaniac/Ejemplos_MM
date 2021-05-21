@@ -23,5 +23,5 @@ export const fetchMailsSent = () => {
   )
 };
 
-export const sendMailToReceived = (email) => axios.post(urlMailReceived,email).then((response) => console.log(response));
+export const sendMailToSent = (email) => axios.post(urlMailSent,email).then((response) => console.log(response));
 

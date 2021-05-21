@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectMailsReceivedMemoized,selectMailsReceived, selectMailsSent } from "../store/mailApp.selectors";
+import { selectMailsReceivedMemoized,selectMailsReceived, selectMailsSent, selectMailsSentMemoized } from "../store/mailApp.selectors";
 
 import { fetchMailsReceived, fetchMailsSent } from "../services/mailApp.services";
 import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceivedError, fetchMailsSentError, fetchMailsSentPending, fetchMailsSentSuccess } from "../store/mailApp.actions";
@@ -9,12 +9,12 @@ import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceive
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
   const allMailsReceived = useSelector(selectMailsReceived); // Hook para acceder a redux con un selector
-
   const allMailsSent = useSelector(selectMailsSent);
+  useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
+  useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
 
-  useSelector(selectMailsReceivedMemoized); // Hook para ordenar lista
-
-  const [ mailSelected, setMailSelected ] = useState();
+  const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
+  const [ mailSentSelected, setMailSentSelected ] = useState();
   const [ isSubmit, setSubmit] = useState(false);
   const [ filledForm, setFilledForm ] = useState({
       id: '',
@@ -32,15 +32,20 @@ export const useMailApp = () => {
     const initFetchMails = async () => {
       dispatch(fetchMailsReceivedPending()); // ejecuta la accion de pending
       dispatch(fetchMailsSentPending())
-      const fetchResult = await fetchMailsReceived(); // llamamos al servicio
+      const fetchResultReceived = await fetchMailsReceived(); // llamamos al servicio
       const fetchResultSent = await fetchMailsSent();
-      dispatch(fetchMailsSentSuccess(fetchResultSent))
       //En funcion del resultado de la peticion http, ejecutamos una accion u otra
-      if (fetchResult.length > 0){
-        dispatch(fetchMailsReceivedSuccess(fetchResult));
+      if (fetchResultReceived.length > 0){
+        dispatch(fetchMailsReceivedSuccess(fetchResultReceived));
       }
-      else{
-        dispatch(fetchMailsReceivedError(fetchResult));
+      if (fetchResultSent.length > 0 ){
+        dispatch(fetchMailsSentSuccess(fetchResultSent))
+      }
+      if (fetchResultReceived.length === 0) {
+        dispatch(fetchMailsReceivedError(fetchResultReceived));
+      }
+      if(fetchResultSent.length === 0){
+        dispatch(fetchMailsSentError(fetchResultReceived));
       }
 
     };
@@ -50,8 +55,10 @@ export const useMailApp = () => {
   return {
     allMailsReceived,
     allMailsSent,
-    mailSelected,
-    setMailSelected,
+    mailReceivedSelected,
+    setMailReceivedSelected,
+    mailSentSelected,
+    setMailSentSelected,
     isSubmit,
     setSubmit,
     filledForm,

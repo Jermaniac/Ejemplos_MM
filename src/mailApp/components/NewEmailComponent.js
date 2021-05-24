@@ -1,12 +1,6 @@
-import { FormControl, Input, Modal, TextareaAutosize } from "@material-ui/core";
+import { FormControl, Input, TextareaAutosize } from "@material-ui/core";
 
 import React from 'react';
-
-const modalStyle = {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
 
   const formStyle = {
     backgroundColor:"white",

@@ -134,6 +134,13 @@
       "author": "Me",
       "receiver": "Javier",
       "message": "EJEMPLO"
+    },
+    {
+      "id": 15,
+      "title": "Prueba nueva",
+      "author": "Me",
+      "receiver": "German",
+      "message": "Aqui probando a ver como se ve el correo enviado"
     }
   ],
   "deleted": []

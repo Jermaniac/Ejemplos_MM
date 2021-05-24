@@ -21,8 +21,8 @@ export const NewEmailContainer = ({isSubmit, setSubmit, filledForm, setFilledFor
 
     return (
         <NewEmailComponent
-        handleSendEmail={handleSendEmail}
-        onFormChange={onFormChange}
+          handleSendEmail={handleSendEmail}
+          onFormChange={onFormChange}
         ></NewEmailComponent>
     )
 }

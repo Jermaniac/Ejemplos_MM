@@ -8,10 +8,10 @@ import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceive
 
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
-  const allMailsReceived = useSelector(selectMailsReceivedMemoized); // Hook para acceder a redux con un selector
+
+  // Hook para acceder a redux con un selector
+  const allMailsReceived = useSelector(selectMailsReceivedMemoized);
   const allMailsSent = useSelector(selectMailsSentMemoized);
-  // useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
-  // useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();

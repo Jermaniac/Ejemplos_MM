@@ -1,28 +1,22 @@
-import {GenericMailboxContainer} from "../containers/GenericMailboxContainer";
-import {NewMessageContainer} from "../containers/NewMessageContainer";
-import {ViewerContainer} from "../containers/ViewerContainer";
-import Grid from '@material-ui/core/Grid';
-import {Spinner} from "../../commons/components/Spinner"
-
-import {
-    BrowserRouter,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
-import { makeStyles, Modal } from "@material-ui/core";
 import { useState } from "react";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
+import { GenericMailboxContainer } from "../containers/GenericMailboxContainer";
+import { NewEmailContainer } from "../containers/NewEmailContainer";
+import { ViewerContainer } from "../containers/ViewerContainer";
+import { Spinner} from "../../commons/components/Spinner"
+
+import Grid from '@material-ui/core/Grid';
+import { makeStyles, Modal } from "@material-ui/core";
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/Inbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
+import CreateIcon from '@material-ui/icons/Create';
 import SendIcon from '@material-ui/icons/Send';
-import { NewEmailContainer } from "../containers/NewEmailContainer";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles( (theme) => ({
   root: {
     width: '100%',
     maxWidth: 360,
@@ -36,7 +30,9 @@ const modalStyle = {
   justifyContent: 'center',
 }
 
-export const MailAppComponent = ({ allMailsReceived,
+export const MailAppComponent = (
+  { 
+    allMailsReceived,
     allMailsSent,
     mailReceivedSelected,
     setMailReceivedSelected,
@@ -45,24 +41,15 @@ export const MailAppComponent = ({ allMailsReceived,
     isSubmit,
     setSubmit,
     filledForm,
-    setFilledForm }) => {
-
-      const [open, setOpen] = useState(false);
-
-      const [open2, setOpen2] = useState(false);
+    setFilledForm 
+  }) => {
 
       const classes = useStyles();
+      
+      const [open, setOpen] = useState(false);
 
-      const handleOpen = () => {
-        setOpen(true);
-      }
-
-      const openModal = () => {
-        setOpen2(true)
-      }
-
-      const closeModal = () => {
-        setOpen2(false)
+      const toggleModal = () => {
+        setOpen(!open)
       }
 
       return (
@@ -71,20 +58,12 @@ export const MailAppComponent = ({ allMailsReceived,
             <Grid item xs={2}>
               <div className={classes.root}>
                 <List component="nav" aria-label="main mailbox folders">
-                  <ListItem button onClick={openModal}>
+                  <ListItem button onClick={toggleModal}>
                     <ListItemIcon>
-                      <DraftsIcon />
+                      <CreateIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Abrir modal" />
+                    <ListItemText primary="New Email" />
                   </ListItem>
-                  <Link to="/newMessage">
-                    <ListItem button onClick={handleOpen}>
-                      <ListItemIcon>
-                        <DraftsIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="New Message" />
-                    </ListItem>
-                  </Link>
                   <Link to="/">
                     <ListItem button>
                       <ListItemIcon>
@@ -102,42 +81,23 @@ export const MailAppComponent = ({ allMailsReceived,
                     </ListItem>
                   </Link>
                 </List>
-                {/* <Divider />
-                <List component="nav" aria-label="secondary mailbox folders">
-                  <ListItem button>
-                    <ListItemText primary="Trash" />
-                  </ListItem>
-                  <ListItemLink href="#simple-list">
-                    <ListItemText primary="Spam" />
-                  </ListItemLink>
-                </List> */}
               </div>
             </Grid>
             <Grid item xs={10}>
               <Modal style={modalStyle}
-              open={open2}
-              onClose={closeModal}>
-                <NewEmailContainer
-                isSubmit={isSubmit}
-                setSubmit={setSubmit}
-                filledForm={filledForm}
-                setFilledForm={setFilledForm}
-                >
-                </NewEmailContainer>
-              </Modal>
-              <Switch>
-                <Route exact path="/newMessage">
-                  <Grid container>
-                    <NewMessageContainer
+                open={open}
+                onClose={toggleModal}>
+                  <div>
+                    <NewEmailContainer
                       isSubmit={isSubmit}
                       setSubmit={setSubmit}
                       filledForm={filledForm}
                       setFilledForm={setFilledForm}
-                      open={open}
-                      setOpen={setOpen}
-                    />
-                  </Grid>
-                </Route>
+                    >
+                    </NewEmailContainer>
+                  </div>
+              </Modal>
+              <Switch>
                 <Route exact path="/">
                   {!allMailsReceived.pending ? (
                     <Grid container spacing={5}>

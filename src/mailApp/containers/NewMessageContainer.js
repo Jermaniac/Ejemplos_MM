@@ -2,7 +2,7 @@ import { NewMessageComponent } from "../components/NewMessageComponent"
 import {sendMailToSent} from '../services/mailApp.services'
 
 
-export const NewMessageContainer = ({isSubmit, setSubmit, filledForm, setFilledForm}) => {
+export const NewMessageContainer = ({isSubmit, setSubmit, filledForm, setFilledForm, open, setOpen}) => {
 
     const handleSendEmail = (event) => {
       event.preventDefault();
@@ -22,7 +22,9 @@ export const NewMessageContainer = ({isSubmit, setSubmit, filledForm, setFilledF
       <>
         <NewMessageComponent
         handleSendEmail={handleSendEmail}
-        onFormChange={onFormChange}/>
+        onFormChange={onFormChange}
+        open={open}
+        setOpen={setOpen}/>
       </>
     );
 

@@ -13,7 +13,7 @@ export const GenericMailboxComponent = ({title, mails, handleClick}) => {
       <h3>{title}</h3>
       <div style={cardStyles}>
         <Card>
-          {mails.map((msg) => {
+          {mails.mails.map((msg) => {
             return (
               <Card key={msg.id}>
                 <CardActionArea onClick={() => handleClick(msg.id)} >

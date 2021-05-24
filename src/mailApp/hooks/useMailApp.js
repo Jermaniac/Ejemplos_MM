@@ -10,8 +10,8 @@ import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceive
 export const useMailApp = () => {
   const allMailsReceived = useSelector(selectMailsReceived); // Hook para acceder a redux con un selector
   const allMailsSent = useSelector(selectMailsSent);
-//  useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
-//   useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
+  useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
+  useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();
@@ -56,7 +56,7 @@ export const useMailApp = () => {
       }
     };
     initFetchAllMails();
-  }, []);
+  }, [dispatch]);
 
   // Se ejecuta cada vez que enviemos un nuevo mail (cada vez que isSubmit cambia), y va a Enviados
   useEffect(() => {

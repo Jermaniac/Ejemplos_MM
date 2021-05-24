@@ -1,9 +1,9 @@
+import { Modal } from "@material-ui/core";
 
-export const NewMessageComponent = ({ onFormChange, handleSendEmail}) => {
+export const NewMessageComponent = ({ onFormChange, handleSendEmail, open, setOpen}) => {
 
-        return (
-          <>
-            <form onSubmit={handleSendEmail}>
+  const body = (
+    <form onSubmit={handleSendEmail}>
               <label>
                 <input
                   id="receiver"
@@ -47,6 +47,24 @@ export const NewMessageComponent = ({ onFormChange, handleSendEmail}) => {
               <br />
               <input type="submit" value="Submit"></input>
             </form>
+  )
+
+  const handleClose = () => {
+    console.log("Close window");
+    setOpen(false);
+  }
+
+        return (
+          <>
+            <Modal
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="simple-modal-title"
+              aria-describedby="simple-modal-description"
+            >
+              {body}
+            </Modal>
+            
           </>
         );
 }

@@ -11,6 +11,7 @@ import {
     Link
   } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
+import { useState } from "react";
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -28,14 +29,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const cardStyles = {
-  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-};
-
-// function ListItemLink(props) {
-//   return <ListItem button component="a" {...props} />;
-// }
-
 export const MailAppComponent = ({ allMailsReceived,
     allMailsSent,
     mailReceivedSelected,
@@ -47,7 +40,13 @@ export const MailAppComponent = ({ allMailsReceived,
     filledForm,
     setFilledForm }) => {
       
+      const [open, setOpen] = useState(false);
+
       const classes = useStyles();
+
+      const handleOpen = () => {
+        setOpen(true);
+      }
 
       return (
         <BrowserRouter>
@@ -56,7 +55,7 @@ export const MailAppComponent = ({ allMailsReceived,
               <div className={classes.root}>
                 <List component="nav" aria-label="main mailbox folders">
                   <Link to="/newMessage">
-                    <ListItem button>
+                    <ListItem button onClick={handleOpen}>
                       <ListItemIcon>
                         <DraftsIcon />
                       </ListItemIcon>
@@ -100,6 +99,8 @@ export const MailAppComponent = ({ allMailsReceived,
                       setSubmit={setSubmit}
                       filledForm={filledForm}
                       setFilledForm={setFilledForm}
+                      open={open}
+                      setOpen={setOpen}
                     />
                   </Grid>
                 </Route>
@@ -109,7 +110,7 @@ export const MailAppComponent = ({ allMailsReceived,
                       <Grid item xs={6}>
                         <GenericMailboxContainer
                           title={"Inbox"}
-                          mails={allMailsReceived.mails}
+                          mails={allMailsReceived}
                           setMailSelected={setMailReceivedSelected}
                         />
                       </Grid>
@@ -127,7 +128,7 @@ export const MailAppComponent = ({ allMailsReceived,
                       <Grid item xs={6}>
                         <GenericMailboxContainer
                           title={"Sent"}
-                          mails={allMailsSent.mails}
+                          mails={allMailsSent}
                           setMailSelected={setMailSentSelected}
                         />
                       </Grid>

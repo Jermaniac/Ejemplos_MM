@@ -6,7 +6,9 @@ export const selectMailsSent = (state) => state.fetchMailsSent || [];
 
 export const selectMailsReceivedMemoized = createSelector(
     [selectMailsReceived],
-    ({mails}) => mails?.reverse()
+    ({mails}) => {
+        mails?.reverse()
+    }
 )
 
 export const selectMailsSentMemoized = createSelector(

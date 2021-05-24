@@ -8,10 +8,10 @@ import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceive
 
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
-  const allMailsReceived = useSelector(selectMailsReceivedMemoized); // Hook para acceder a redux con un selector
-  const allMailsSent = useSelector(selectMailsSentMemoized);
- // useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
-  //useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
+  const allMailsReceived = useSelector(selectMailsReceived); // Hook para acceder a redux con un selector
+  const allMailsSent = useSelector(selectMailsSent);
+//  useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
+//   useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();
@@ -67,7 +67,7 @@ export const useMailApp = () => {
 
        // llamamos al servicio
       const fetchResultSent = await fetchMailsSent();
-      
+
       //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
       if (fetchResultSent.length > 0 ){
         dispatch(fetchMailsSentSuccess(fetchResultSent))
@@ -79,7 +79,7 @@ export const useMailApp = () => {
     //Finalmente lo llamamos
     initFetchSentMails();
   }, [isSubmit, dispatch]);
-  
+
   return {
     allMailsReceived,
     allMailsSent,

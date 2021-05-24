@@ -10,14 +10,13 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import { Button, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import { SentEmailsContainer } from "../containers/SentEmailsContainer";
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
@@ -29,6 +28,10 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
+
+const cardStyles = {
+  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+};
 
 // function ListItemLink(props) {
 //   return <ListItem button component="a" {...props} />;
@@ -44,7 +47,7 @@ export const MailAppComponent = ({ allMailsReceived,
     setSubmit,
     filledForm,
     setFilledForm }) => {
-    
+
       const classes = useStyles();
 
       return (

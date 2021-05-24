@@ -2,12 +2,16 @@ import Card  from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardActionArea from '@material-ui/core/CardActionArea';
 
+const cardStyles = {
+  maxHeight:"500px",
+  overflow:"scroll"
+}
 
 export const InboxComponent = ({allMailsReceived, handleClick}) => {
   return (
     <>
       <h3>Inbox</h3>
-      <div>
+      <div style={cardStyles}>
         <Card>
           {allMailsReceived.map((msg) => {
             return (

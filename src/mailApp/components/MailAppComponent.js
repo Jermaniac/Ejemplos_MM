@@ -10,7 +10,7 @@ import {
     Route,
     Link
   } from "react-router-dom";
-import { makeStyles } from "@material-ui/core";
+import { makeStyles, Modal } from "@material-ui/core";
 import { useState } from "react";
 
 import List from '@material-ui/core/List';
@@ -20,6 +20,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/Inbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
+import { NewEmailContainer } from "../containers/NewEmailContainer";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,6 +29,12 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.background.paper,
   },
 }));
+
+const modalStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}
 
 export const MailAppComponent = ({ allMailsReceived,
     allMailsSent,
@@ -42,6 +49,8 @@ export const MailAppComponent = ({ allMailsReceived,
 
       const [open, setOpen] = useState(false);
 
+      const [open2, setOpen2] = useState(false);
+
       const classes = useStyles();
 
       const handleOpen = () => {
@@ -49,9 +58,13 @@ export const MailAppComponent = ({ allMailsReceived,
       }
 
       const openModal = () => {
-
+        setOpen2(true)
       }
-      
+
+      const closeModal = () => {
+        setOpen2(false)
+      }
+
       return (
         <BrowserRouter>
           <Grid container>
@@ -101,6 +114,17 @@ export const MailAppComponent = ({ allMailsReceived,
               </div>
             </Grid>
             <Grid item xs={10}>
+              <Modal style={modalStyle}
+              open={open2}
+              onClose={closeModal}>
+                <NewEmailContainer
+                isSubmit={isSubmit}
+                setSubmit={setSubmit}
+                filledForm={filledForm}
+                setFilledForm={setFilledForm}
+                >
+                </NewEmailContainer>
+              </Modal>
               <Switch>
                 <Route exact path="/newMessage">
                   <Grid container>

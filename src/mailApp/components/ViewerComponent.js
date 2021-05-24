@@ -3,12 +3,19 @@ import CardContent from '@material-ui/core/CardContent';
 
 export const ViewerComponent = ({mailSelected}) => {
 
+  const cardStyles = {
+    maxHeight:"500px",
+    overflow:"scroll",
+    textAlign:"justify",
+    padding: "20px"
+  }
+
   return (
     <>
       <h3>Viewer</h3>
 
       {mailSelected && (
-        <div>
+        <div style={cardStyles}>
           <Card>
             <CardContent>
               <div>

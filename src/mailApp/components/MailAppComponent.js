@@ -1,4 +1,4 @@
-import {InboxContainer} from "../containers/InboxContainer";
+import {GenericMailboxContainer} from "../containers/GenericMailboxContainer";
 import {NewMessageContainer} from "../containers/NewMessageContainer";
 import {ViewerContainer} from "../containers/ViewerContainer";
 import Grid from '@material-ui/core/Grid';
@@ -11,7 +11,6 @@ import {
     Link
   } from "react-router-dom";
 import { makeStyles } from "@material-ui/core";
-import { SentEmailsContainer } from "../containers/SentEmailsContainer";
 
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -47,7 +46,7 @@ export const MailAppComponent = ({ allMailsReceived,
     setSubmit,
     filledForm,
     setFilledForm }) => {
-
+      
       const classes = useStyles();
 
       return (
@@ -108,8 +107,9 @@ export const MailAppComponent = ({ allMailsReceived,
                   {!allMailsReceived.pending ? (
                     <Grid container spacing={5}>
                       <Grid item xs={6}>
-                        <InboxContainer
-                          allMailsReceived={allMailsReceived}
+                        <GenericMailboxContainer
+                          title={"Inbox"}
+                          mails={allMailsReceived.mails}
                           setMailSelected={setMailReceivedSelected}
                         />
                       </Grid>
@@ -125,8 +125,9 @@ export const MailAppComponent = ({ allMailsReceived,
                   {!allMailsSent.pending ? (
                     <Grid container spacing={5}>
                       <Grid item xs={6}>
-                        <SentEmailsContainer
-                          allMailsSent={allMailsSent}
+                        <GenericMailboxContainer
+                          title={"Sent"}
+                          mails={allMailsSent.mails}
                           setMailSelected={setMailSentSelected}
                         />
                       </Grid>

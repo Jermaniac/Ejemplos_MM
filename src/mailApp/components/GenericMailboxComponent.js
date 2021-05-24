@@ -7,13 +7,13 @@ const cardStyles = {
   overflow:"scroll"
 }
 
-export const InboxComponent = ({allMailsReceived, handleClick}) => {
+export const GenericMailboxComponent = ({title, mails, handleClick}) => {
   return (
     <>
-      <h3>Inbox</h3>
+      <h3>{title}</h3>
       <div style={cardStyles}>
         <Card>
-          {allMailsReceived.map((msg) => {
+          {mails.map((msg) => {
             return (
               <Card key={msg.id}>
                 <CardActionArea onClick={() => handleClick(msg.id)} >

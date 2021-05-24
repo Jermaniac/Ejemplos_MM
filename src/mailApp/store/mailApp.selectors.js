@@ -7,12 +7,16 @@ export const selectMailsSent = (state) => state.fetchSentReducer || [];
 // Selectores que usan los anteriores para coger los mails del store e invertir su orden
 export const selectMailsReceivedMemoized = createSelector(
     [selectMailsReceived],
-    ({mails}) => {
-        mails?.reverse()
+    (mails) => {
+        mails.mails?.reverse();
+        return mails;
     }
 )
 
 export const selectMailsSentMemoized = createSelector(
     [selectMailsSent],
-    ({mails}) => mails?.reverse()
+    (mails) => {
+        mails.mails?.reverse();
+        return mails;
+    }
 )

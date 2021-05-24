@@ -39,7 +39,7 @@ export const MailAppComponent = ({ allMailsReceived,
     setSubmit,
     filledForm,
     setFilledForm }) => {
-      
+
       const [open, setOpen] = useState(false);
 
       const classes = useStyles();
@@ -48,12 +48,22 @@ export const MailAppComponent = ({ allMailsReceived,
         setOpen(true);
       }
 
+      const openModal = () => {
+
+      }
+      
       return (
         <BrowserRouter>
           <Grid container>
             <Grid item xs={2}>
               <div className={classes.root}>
                 <List component="nav" aria-label="main mailbox folders">
+                  <ListItem button onClick={openModal}>
+                    <ListItemIcon>
+                      <DraftsIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Abrir modal" />
+                  </ListItem>
                   <Link to="/newMessage">
                     <ListItem button onClick={handleOpen}>
                       <ListItemIcon>
@@ -92,7 +102,7 @@ export const MailAppComponent = ({ allMailsReceived,
             </Grid>
             <Grid item xs={10}>
               <Switch>
-              <Route exact path="/newMessage">
+                <Route exact path="/newMessage">
                   <Grid container>
                     <NewMessageContainer
                       isSubmit={isSubmit}

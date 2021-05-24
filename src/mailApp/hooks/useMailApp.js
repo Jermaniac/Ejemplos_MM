@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectMailsReceivedMemoized,selectMailsReceived, selectMailsSent, selectMailsSentMemoized } from "../store/mailApp.selectors";
+import { selectMailsReceivedMemoized, selectMailsSentMemoized } from "../store/mailApp.selectors";
 
 import { fetchMailsReceived, fetchMailsSent } from "../services/mailApp.services";
 import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceivedError, fetchMailsSentError, fetchMailsSentPending, fetchMailsSentSuccess } from "../store/mailApp.actions";
 
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
-  const allMailsReceived = useSelector(selectMailsReceived); // Hook para acceder a redux con un selector
-  const allMailsSent = useSelector(selectMailsSent);
-  useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
-  useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
+  const allMailsReceived = useSelector(selectMailsReceivedMemoized); // Hook para acceder a redux con un selector
+  const allMailsSent = useSelector(selectMailsSentMemoized);
+  // useSelector(selectMailsReceivedMemoized); // memoized selector para ordenar lista
+  // useSelector(selectMailsSentMemoized); // memoized selector para ordenar lista
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();

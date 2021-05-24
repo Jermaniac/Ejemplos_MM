@@ -4,7 +4,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 const cardStyles = {
   maxHeight:"500px",
-  overflow:"scroll"
+  overflow:"scroll",
+  padding: "20px"
 }
 
 export const GenericMailboxComponent = ({title, mails, handleClick}) => {

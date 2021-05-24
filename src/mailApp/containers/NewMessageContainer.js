@@ -8,7 +8,9 @@ export const NewMessageContainer = ({isSubmit, setSubmit, filledForm, setFilledF
       event.preventDefault();
       sendMailToSent(filledForm);
       setSubmit(!isSubmit);
-      console.log("Email sent!")
+      // setOpen(false);
+      console.log("Email sent!");
+      event.target.reset();
     }
 
     const onFormChange = (event) => {

@@ -4,7 +4,8 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 
 const cardStyles = {
   maxHeight:"500px",
-  overflow:"scroll",
+  overflowY:"auto",
+  overflowX: "hidden",
   padding: "20px"
 }
 
@@ -17,7 +18,7 @@ export const GenericMailboxComponent = ({title, mails, handleClick}) => {
           {mails.mails.map((msg) => {
             return (
               <Card key={msg.id}>
-                <CardActionArea onClick={() => handleClick(msg.id)} >
+                <CardActionArea onClick={() => handleClick(msg.id)}>
                   <CardContent>
                     <h4>{msg.title}</h4>
                     <h5>{msg.author}</h5>

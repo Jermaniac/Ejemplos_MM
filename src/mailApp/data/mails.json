@@ -81,67 +81,33 @@
     },
     {
       "id": 7,
-      "title": "asdfdfa",
-      "author": "asdfadsf",
-      "receiver": "asdfasdf",
-      "message": "asdfasdfasdf"
+      "title": "Se ve la jugada",
+      "author": "Me",
+      "receiver": "Alfredo",
+      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo."
     },
     {
       "id": 8,
-      "title": "",
-      "author": "",
-      "receiver": "",
-      "message": ""
+      "title": "Titulo largooooo",
+      "author": "Me",
+      "receiver": "Javi",
+      "message": "Titulo largo\n\n\n\n\n\n\n\nUn saludo."
     },
     {
       "id": 9,
-      "title": "COMUNICADO",
+      "title": "Esto es una prueba",
       "author": "Me",
-      "receiver": "Unexistance friend",
-      "message": "Buenos días,\n\nEscribo para comunicar esto.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUn saludo y muchas gracias."
-    },
-    {
-      "id": 10,
-      "title": "PRUEBA MENSAJE LARGO",
-      "author": "Me",
-      "receiver": "Javi",
-      "message": "Buenos días,\n\nEste será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo.Este será un mensaje largo."
-    },
-    {
-      "id": 11,
-      "title": "PROBAR RESET",
-      "author": "Me",
-      "receiver": "Javier",
-      "message": "Se esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el resetSe esta probando el reset"
-    },
-    {
-      "id": 12,
-      "title": "Prueba borrar",
-      "author": "Me",
-      "receiver": "Javier",
-      "message": "Esta es una prueba 2"
-    },
-    {
-      "id": 13,
-      "title": "asdas",
-      "author": "asdas",
-      "receiver": "sdasd",
-      "message": "asdas"
-    },
-    {
-      "id": 14,
-      "title": "PROBAR TIEMPO REAL",
-      "author": "Me",
-      "receiver": "Javier",
-      "message": "EJEMPLO"
-    },
-    {
-      "id": 15,
-      "title": "Prueba nueva",
-      "author": "Me",
-      "receiver": "German",
-      "message": "Aqui probando a ver como se ve el correo enviado"
+      "receiver": "Marcos",
+      "message": "Buenos días,\n\nEsto es una prueba.\n\nUn saludo."
     }
   ],
-  "deleted": []
+  "deleted": [
+    {
+      "id": 0,
+      "title": "PRUEBA",
+      "author": "PRUEBA",
+      "receiver": "PRUEBA",
+      "message": "PRUEBA"
+    }
+  ]
 }

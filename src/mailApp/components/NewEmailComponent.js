@@ -35,7 +35,7 @@ export const NewEmailComponent = ({handleSendEmail, onFormChange}) => {
           <br />
           <FormControl required>
             <Input
-              // style={{ marginBottom: "10px" }}
+              style={{ marginBottom: "10px" }}
               id="title"
               type="text"
               placeholder="Title"

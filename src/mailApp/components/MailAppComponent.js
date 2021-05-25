@@ -16,6 +16,8 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import CreateIcon from '@material-ui/icons/Create';
 import SendIcon from '@material-ui/icons/Send';
 
+import DeleteIcon from '@material-ui/icons/Delete';
+
 const useStyles = makeStyles( (theme) => ({
   root: {
     width: '100%',
@@ -31,21 +33,24 @@ const modalStyle = {
 }
 
 export const MailAppComponent = (
-  { 
+  {
     allMailsReceived,
     allMailsSent,
+    allMailsDeleted,
     mailReceivedSelected,
     setMailReceivedSelected,
     mailSentSelected,
     setMailSentSelected,
+    mailDeletedSelected,
+    setMailDeletedSelected,
     isSubmit,
     setSubmit,
     filledForm,
-    setFilledForm 
+    setFilledForm
   }) => {
 
       const classes = useStyles();
-      
+
       const [open, setOpen] = useState(false);
 
       const toggleModal = () => {
@@ -64,7 +69,7 @@ export const MailAppComponent = (
                     </ListItemIcon>
                     <ListItemText primary="New Email" />
                   </ListItem>
-                  <Link to="/">
+                  <Link style={{textDecoration: "none", color:"black"}} to="/">
                     <ListItem button>
                       <ListItemIcon>
                         <InboxIcon />
@@ -72,12 +77,20 @@ export const MailAppComponent = (
                       <ListItemText primary="Inbox" />
                     </ListItem>
                   </Link>
-                  <Link to="/sent">
+                  <Link style={{textDecoration: "none", color:"black"}} to="/sent">
                     <ListItem button>
                       <ListItemIcon>
                         <SendIcon />
                       </ListItemIcon>
                       <ListItemText primary="Sent" />
+                    </ListItem>
+                  </Link>
+                  <Link style={{textDecoration: "none", color:"black"}} to="/trash">
+                    <ListItem button>
+                      <ListItemIcon>
+                        <DeleteIcon />
+                      </ListItemIcon>
+                      <ListItemText primary="Trash" />
                     </ListItem>
                   </Link>
                 </List>
@@ -128,6 +141,24 @@ export const MailAppComponent = (
                       </Grid>
                       <Grid item xs={6}>
                         <ViewerContainer mailSelected={mailSentSelected} />
+                      </Grid>
+                    </Grid>
+                  ) : (
+                    <Spinner></Spinner>
+                  )}
+                </Route>
+                <Route exact path="/trash">
+                  {!allMailsDeleted.pending ? (
+                    <Grid container spacing={5}>
+                      <Grid item xs={6}>
+                        <GenericMailboxContainer
+                          title={"Trash"}
+                          mails={allMailsDeleted}
+                          setMailSelected={setMailDeletedSelected}
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <ViewerContainer mailSelected={mailDeletedSelected} />
                       </Grid>
                     </Grid>
                   ) : (

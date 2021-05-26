@@ -1,9 +1,11 @@
 import "./App.css";
 
-import { JobFinderContainer } from "../src/JobFinder/containers/JobFinderContainer";
-// rama de reduxExample
+import { MailAppContainer } from "../src/mailApp/containers/MailAppContainer";
+
 export function App() {
   return (
-    <JobFinderContainer />
+    <>
+      <MailAppContainer />
+    </>
   );
 }

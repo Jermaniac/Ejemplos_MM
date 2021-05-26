@@ -1,0 +1,113 @@
+{
+  "received": [
+    {
+      "id": 0,
+      "title": "[Meeting with the Feynman friend]",
+      "author": "feynman@myfriend.com",
+      "receiver": "me",
+      "message": "Meet me at 10 p.m."
+    },
+    {
+      "id": 1,
+      "title": "[IMPORTANT]: Update your CV",
+      "author": "peter@capgemini.es",
+      "receiver": "me",
+      "message": "Please, update your CV asap or you will be fired. Final warning."
+    },
+    {
+      "id": 2,
+      "title": "[Capgemini]: New courses in MyLearning",
+      "author": "rrhh@capgemini.com",
+      "receiver": "me",
+      "message": "Courses in MyLearning platform have been recently updated. Please take a look at them."
+    },
+    {
+      "id": 3,
+      "title": "Material UI",
+      "author": "german@capgemini.es",
+      "receiver": "me",
+      "message": "Incredible styles coming"
+    }
+  ],
+  "sent": [
+    {
+      "id": 0,
+      "title": "PRUEBA",
+      "author": "PRUEBA",
+      "receiver": "PRUEBA",
+      "message": "PRUEBA"
+    },
+    {
+      "id": 1,
+      "title": "Material UI",
+      "author": "",
+      "receiver": "german@capgemini.es",
+      "message": "Lets go"
+    },
+    {
+      "id": 2,
+      "title": "Mis pros",
+      "author": "Javi",
+      "receiver": "Alberto",
+      "message": "Lo que has hecho, no, Lo ,que no has hecho"
+    },
+    {
+      "id": 3,
+      "title": "ejemplo",
+      "author": "yo",
+      "receiver": "miprimo",
+      "message": "va venga"
+    },
+    {
+      "id": 4,
+      "title": "EL ultimo",
+      "author": "German",
+      "receiver": "Javi@gmail.com",
+      "message": "Este es el ultimo"
+    },
+    {
+      "id": 5,
+      "title": "ejemplo3",
+      "author": "remitente",
+      "receiver": "destinatario",
+      "message": "asdasdasdf"
+    },
+    {
+      "id": 6,
+      "title": "ejemplo3",
+      "author": "asdf",
+      "receiver": "Javi@gmail.com",
+      "message": "asdfasdfa"
+    },
+    {
+      "id": 7,
+      "title": "Se ve la jugada",
+      "author": "Me",
+      "receiver": "Alfredo",
+      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo."
+    },
+    {
+      "id": 8,
+      "title": "Titulo largooooo",
+      "author": "Me",
+      "receiver": "Javi",
+      "message": "Titulo largo\n\n\n\n\n\n\n\nUn saludo."
+    },
+    {
+      "id": 9,
+      "title": "Esto es una prueba",
+      "author": "Me",
+      "receiver": "Marcos",
+      "message": "Buenos días,\n\nEsto es una prueba.\n\nUn saludo."
+    }
+  ],
+  "deleted": [
+    {
+      "id": 0,
+      "title": "PRUEBA",
+      "author": "PRUEBA",
+      "receiver": "PRUEBA",
+      "message": "PRUEBA"
+    }
+  ]
+}

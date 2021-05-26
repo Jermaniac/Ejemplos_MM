@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import { filter_jobs } from "./Reducers/reducer";
+import { fetchReceivedReducer, fetchSentReducer, fetchDeletedReducer } from "../mailApp/store/mailApp.reducers";
 
-export default combineReducers({ filter_jobs });
+export default combineReducers({ fetchReceivedReducer, fetchSentReducer, fetchDeletedReducer });

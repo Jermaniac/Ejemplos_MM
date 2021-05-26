@@ -11,7 +11,7 @@ export const JobFinderComponent = (props) => {
   return (
     <div style={wrapperStyle}>
       <input type="text" id="browserbar"></input>
-      <button onClick={handleClick}>SEARCH</button>
+      <button className="btn btn-primary" onClick={handleClick}>SEARCH</button>
       <ResultListContainer busqueda={filteredJobs}></ResultListContainer>
     </div>
   );

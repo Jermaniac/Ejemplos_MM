@@ -1,7 +1,7 @@
 import {useMailApp} from '../hooks/useMailApp'
 import { useState } from "react";
 
-
+import {moveMailTo} from '../services/mailApp.services'
 import {MailAppComponent} from '../components/MailAppComponent'
 
 // Contenedor principal del resto de componentes. Se encarga de llamar al custom hook global
@@ -28,6 +28,17 @@ export const MailAppContainer = () => {
       setOpen(!open)
     }
 
+    const handleDeleteMail = (mailSelected) => {
+
+      console.log(`Intentando borrar correo con id: ${mailSelected.id}`)
+      
+      const targetDestination = "deleted";
+      const targetSource = "sent"
+
+      moveMailTo(targetDestination, mailSelected);
+      //deleteMailFrom(targetSource, mailSelected.id);
+    }
+
     return (
         <MailAppComponent
         allMailsReceived={allMailsReceived}
@@ -44,6 +55,7 @@ export const MailAppContainer = () => {
         filledForm={filledForm}
         setFilledForm={setFilledForm}
         toggleModal={toggleModal}
+        handleDeleteMail={handleDeleteMail}
         open={open}
         setOpen={setOpen}></MailAppComponent>
     );

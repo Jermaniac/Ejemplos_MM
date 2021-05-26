@@ -5,28 +5,32 @@
       "title": "[Meeting with the Feynman friend]",
       "author": "feynman@myfriend.com",
       "receiver": "me",
-      "message": "Meet me at 10 p.m."
+      "message": "Meet me at 10 p.m.",
+      "category": "received"
     },
     {
       "id": 1,
       "title": "[IMPORTANT]: Update your CV",
       "author": "peter@capgemini.es",
       "receiver": "me",
-      "message": "Please, update your CV asap or you will be fired. Final warning."
+      "message": "Please, update your CV asap or you will be fired. Final warning.",
+      "category": "received"
     },
     {
       "id": 2,
       "title": "[Capgemini]: New courses in MyLearning",
       "author": "rrhh@capgemini.com",
       "receiver": "me",
-      "message": "Courses in MyLearning platform have been recently updated. Please take a look at them."
+      "message": "Courses in MyLearning platform have been recently updated. Please take a look at them.",
+      "category": "received"
     },
     {
       "id": 3,
       "title": "Material UI",
       "author": "german@capgemini.es",
       "receiver": "me",
-      "message": "Incredible styles coming"
+      "message": "Incredible styles coming",
+      "category": "received"
     }
   ],
   "sent": [
@@ -35,70 +39,80 @@
       "title": "PRUEBA",
       "author": "PRUEBA",
       "receiver": "PRUEBA",
-      "message": "PRUEBA"
+      "message": "PRUEBA",
+      "category": "sent"
     },
     {
       "id": 1,
       "title": "Material UI",
-      "author": "",
+      "author": "Miprimo",
       "receiver": "german@capgemini.es",
-      "message": "Lets go"
+      "message": "Lets go",
+      "category": "sent"
     },
     {
       "id": 2,
       "title": "Mis pros",
       "author": "Javi",
       "receiver": "Alberto",
-      "message": "Lo que has hecho, no, Lo ,que no has hecho"
+      "message": "Lo que has hecho, no, Lo ,que no has hecho",
+      "category": "sent"
     },
     {
       "id": 3,
       "title": "ejemplo",
       "author": "yo",
       "receiver": "miprimo",
-      "message": "va venga"
+      "message": "va venga",
+      "category": "sent"
     },
     {
       "id": 4,
       "title": "EL ultimo",
       "author": "German",
       "receiver": "Javi@gmail.com",
-      "message": "Este es el ultimo"
+      "message": "Este es el ultimo",
+      "category": "sent"
     },
     {
       "id": 5,
       "title": "ejemplo3",
       "author": "remitente",
       "receiver": "destinatario",
-      "message": "asdasdasdf"
+      "message": "asdasdasdf",
+      "category": "sent"
     },
     {
       "id": 6,
       "title": "ejemplo3",
       "author": "asdf",
       "receiver": "Javi@gmail.com",
-      "message": "asdfasdfa"
+      "message": "asdfasdfa",
+      "category": "sent"
     },
     {
       "id": 7,
       "title": "Se ve la jugada",
       "author": "Me",
       "receiver": "Alfredo",
-      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo."
+      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo.",
+      "category": "sent"
     },
     {
       "id": 8,
       "title": "Titulo largooooo",
       "author": "Me",
       "receiver": "Javi",
-      "message": "Titulo largo\n\n\n\n\n\n\n\nUn saludo."
+      "message": "Titulo largo\n\n\n\n\n\n\n\nUn saludo.",
+      "category": "sent"
     },
     {
       "id": 9,
       "title": "Esto es una prueba",
       "author": "Me",
       "receiver": "Marcos",
-      "message": "Buenos días,\n\nEsto es una prueba.\n\nUn saludo."
+      "message": "Buenos días,\n\nEsto es una prueba.\n\nUn saludo.",
+      "category": "sent"
     },
     {
       "id": 10,
@@ -106,7 +120,7 @@
       "author": "Mí",
       "receiver": "Alguien",
       "message": "Probando",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 11,
@@ -114,7 +128,7 @@
       "author": "javi",
       "receiver": "german@capgemini.es",
       "message": "Probando metodo unificado de mover correos entre bandejas",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 12,
@@ -122,24 +136,41 @@
       "author": "Me",
       "receiver": "german@capgemini.es",
       "message": "prueba 2 a ver si lo hace del tiron",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 13,
+      "title": "Probando filled form",
+      "author": "Mi",
+      "receiver": "Alguien",
+      "message": "Probando filled form",
+      "category": ""
+    },
+    {
+      "id": 14,
       "title": "asdfasdf",
       "author": "asdfasdf",
       "receiver": "asdfasdf",
       "message": "asdfasdfasdfasdfasdf se cierra?",
+      "category": "sent"
+    },
+    {
+      "id": 15,
+      "title": "a ver si se recarga",
+      "author": "me",
+      "receiver": "prueba",
+      "message": "se recarga?\n",
       "category": ""
     }
   ],
   "deleted": [
     {
-      "id": 0,
-      "title": "PRUEBA email borrado",
-      "author": "PRUEBA",
-      "receiver": "PRUEBA",
-      "message": "PRUEBA"
+      "id": 1,
+      "title": "asdfasdf",
+      "author": "asdfasdf",
+      "receiver": "asdfasdf",
+      "message": "asdfasdfasdfasdfasdf se cierra?",
+      "category": "sent"
     }
   ]
 }

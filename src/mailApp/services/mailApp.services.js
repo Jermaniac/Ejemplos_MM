@@ -3,26 +3,27 @@ import axios from "axios";
 const baseUrl = "http://localhost:3000/";
 
 // aqui se hace la peticion http y devolvera los mails o un error
-export const fetchMails = (target) => {
+export const fetchMails = (targetDestination) => {
   return (
     axios
-    .get(`${baseUrl}${target}`)
+    .get(`${baseUrl}${targetDestination}`)
     .then( (response) => response.data )
     .catch( (error) => error )
   )
 };
 
 // Servicio para mover un mail de una bandeja a otra, o crearlo en una bandeja
-export const moveMailTo = (target, email) => {
+export const moveMailTo = (targetDestination, email) => {
   axios
-  .post(`${baseUrl}${target}`,email)
+  .post(`${baseUrl}${targetDestination}`,email)
   .then((response) => console.log(response)
   )
 }
 
 // Servicio para mandar un mail a la papelera desde cualquier bandeja
-export const deleteMailFrom = (target) => {
+export const deleteMailFrom = (targetSource, id) => {
   axios
-  .delete(target)
+  .delete(`${baseUrl}${targetSource}/${id}`)
   .then( (response) => response.data )
-  .catch( (error) => error )}
+    
+}

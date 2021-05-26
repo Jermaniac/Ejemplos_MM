@@ -52,9 +52,9 @@ export const useMailApp = () => {
       dispatch(fetchMailsDeletedPending())
 
       // llamamos al servicio
-      const fetchResultReceived = await fetchMails("RECEIVED");
-      const fetchResultSent = await fetchMails("SENT");
-      const fetchResultDeleted = await fetchMails("DELETED");
+      const fetchResultReceived = await fetchMails(RECEIVED);
+      const fetchResultSent = await fetchMails(SENT);
+      const fetchResultDeleted = await fetchMails(DELETED);
 
       //En funcion del resultado de la peticion http para recibidos, ejecutamos una accion u otra
       if (fetchResultReceived.length > 0){
@@ -90,7 +90,7 @@ export const useMailApp = () => {
       dispatch(fetchMailsSentPending())
 
        // llamamos al servicio
-      const fetchResultSent = await fetchMails("sent");
+      const fetchResultSent = await fetchMails(SENT);
 
       //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
       if (fetchResultSent.length > 0 ){
@@ -103,6 +103,10 @@ export const useMailApp = () => {
     //Finalmente lo llamamos
     initFetchSentMails();
   }, [isSubmit, dispatch]);
+
+  // useEffect( () => {
+    
+  // }, []);
 
   return {
     allMailsReceived,

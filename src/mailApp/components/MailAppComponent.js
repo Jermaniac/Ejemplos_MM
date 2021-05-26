@@ -46,6 +46,7 @@ export const MailAppComponent = (
     setSubmit,
     filledForm,
     setFilledForm,
+    handleDeleteMail,
     toggleModal,
     open,
     setOpen
@@ -119,7 +120,7 @@ export const MailAppComponent = (
                         />
                       </Grid>
                       <Grid item xs={6}>
-                        <ViewerContainer mailSelected={mailReceivedSelected} />
+                        <ViewerContainer mailSelected={mailReceivedSelected} handleDeleteMail={handleDeleteMail} />
                       </Grid>
                     </Grid>
                   ) : (
@@ -137,7 +138,7 @@ export const MailAppComponent = (
                         />
                       </Grid>
                       <Grid item xs={6}>
-                        <ViewerContainer mailSelected={mailSentSelected} />
+                        <ViewerContainer mailSelected={mailSentSelected} handleDeleteMail={handleDeleteMail}/>
                       </Grid>
                     </Grid>
                   ) : (
@@ -155,7 +156,7 @@ export const MailAppComponent = (
                         />
                       </Grid>
                       <Grid item xs={6}>
-                        <ViewerContainer mailSelected={mailDeletedSelected} />
+                        <ViewerContainer mailSelected={mailDeletedSelected}handleDeleteMail={handleDeleteMail}/>
                       </Grid>
                     </Grid>
                   ) : (

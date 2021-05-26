@@ -99,12 +99,44 @@
       "author": "Me",
       "receiver": "Marcos",
       "message": "Buenos días,\n\nEsto es una prueba.\n\nUn saludo."
+    },
+    {
+      "id": 10,
+      "title": "Prueba nuevo envio",
+      "author": "Mí",
+      "receiver": "Alguien",
+      "message": "Probando",
+      "category": ""
+    },
+    {
+      "id": 11,
+      "title": "Prueba de MoveMailTo",
+      "author": "javi",
+      "receiver": "german@capgemini.es",
+      "message": "Probando metodo unificado de mover correos entre bandejas",
+      "category": ""
+    },
+    {
+      "id": 12,
+      "title": "Prueba 2 moveMailto",
+      "author": "Me",
+      "receiver": "german@capgemini.es",
+      "message": "prueba 2 a ver si lo hace del tiron",
+      "category": ""
+    },
+    {
+      "id": 13,
+      "title": "asdfasdf",
+      "author": "asdfasdf",
+      "receiver": "asdfasdf",
+      "message": "asdfasdfasdfasdfasdf se cierra?",
+      "category": ""
     }
   ],
   "deleted": [
     {
       "id": 0,
-      "title": "PRUEBA",
+      "title": "PRUEBA email borrado",
       "author": "PRUEBA",
       "receiver": "PRUEBA",
       "message": "PRUEBA"

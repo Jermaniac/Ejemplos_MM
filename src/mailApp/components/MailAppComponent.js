@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import { GenericMailboxContainer } from "../containers/GenericMailboxContainer";
@@ -46,16 +45,13 @@ export const MailAppComponent = (
     isSubmit,
     setSubmit,
     filledForm,
-    setFilledForm
+    setFilledForm,
+    toggleModal,
+    open,
+    setOpen
   }) => {
 
       const classes = useStyles();
-
-      const [open, setOpen] = useState(false);
-
-      const toggleModal = () => {
-        setOpen(!open)
-      }
 
       return (
         <BrowserRouter>
@@ -85,12 +81,12 @@ export const MailAppComponent = (
                       <ListItemText primary="Sent" />
                     </ListItem>
                   </Link>
-                  <Link style={{textDecoration: "none", color:"black"}} to="/trash">
+                  <Link style={{textDecoration: "none", color:"black"}} to="/deleted">
                     <ListItem button>
                       <ListItemIcon>
                         <DeleteIcon />
                       </ListItemIcon>
-                      <ListItemText primary="Trash" />
+                      <ListItemText primary="Deleted" />
                     </ListItem>
                   </Link>
                 </List>
@@ -106,6 +102,7 @@ export const MailAppComponent = (
                       setSubmit={setSubmit}
                       filledForm={filledForm}
                       setFilledForm={setFilledForm}
+                      setOpen={setOpen}
                     >
                     </NewEmailContainer>
                   </div>
@@ -147,12 +144,12 @@ export const MailAppComponent = (
                     <Spinner></Spinner>
                   )}
                 </Route>
-                <Route exact path="/trash">
+                <Route exact path="/deleted">
                   {!allMailsDeleted.pending ? (
                     <Grid container spacing={5}>
                       <Grid item xs={6}>
                         <GenericMailboxContainer
-                          title={"Trash"}
+                          title={"Deleted"}
                           mails={allMailsDeleted}
                           setMailSelected={setMailDeletedSelected}
                         />

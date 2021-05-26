@@ -1,5 +1,6 @@
-
 import {useMailApp} from '../hooks/useMailApp'
+import { useState } from "react";
+
 
 import {MailAppComponent} from '../components/MailAppComponent'
 
@@ -18,7 +19,14 @@ export const MailAppContainer = () => {
       isSubmit,
       setSubmit,
       filledForm,
-      setFilledForm } = useMailApp();
+      setFilledForm
+     } = useMailApp();
+
+    const [open, setOpen] = useState(false);
+
+    const toggleModal = () => {
+      setOpen(!open)
+    }
 
     return (
         <MailAppComponent
@@ -34,7 +42,10 @@ export const MailAppContainer = () => {
         isSubmit={isSubmit}
         setSubmit={setSubmit}
         filledForm={filledForm}
-        setFilledForm={setFilledForm}></MailAppComponent>
+        setFilledForm={setFilledForm}
+        toggleModal={toggleModal}
+        open={open}
+        setOpen={setOpen}></MailAppComponent>
     );
 
 }

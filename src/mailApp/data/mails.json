@@ -171,6 +171,14 @@
       "receiver": "asdfasdf",
       "message": "asdfasdfasdfasdfasdf se cierra?",
       "category": "sent"
+    },
+    {
+      "id": 15,
+      "title": "a ver si se recarga",
+      "author": "me",
+      "receiver": "prueba",
+      "message": "se recarga?\n",
+      "category": ""
     }
   ]
 }

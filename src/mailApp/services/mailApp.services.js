@@ -25,5 +25,4 @@ export const deleteMailFrom = (targetSource, id) => {
   axios
   .delete(`${baseUrl}${targetSource}/${id}`)
   .then( (response) => response.data )
-    
 }

@@ -10,7 +10,6 @@ export const GenericMailboxContainer = ({title, mails, setMailSelected}) => {
         setMailSelected(mail);
     }
 
-    // Se pinta la lista de emails y si no hay recibidos, sale el spinner
     return(
         <>
             <GenericMailboxComponent

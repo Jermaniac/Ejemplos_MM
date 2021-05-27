@@ -9,10 +9,19 @@ const cardStyles = {
   padding: "20px"
 }
 
+const titleStyle = {
+  color: "#111",
+  fontFamily: "Open Sans, arial",
+  fontSize: "40px",
+  fontWeight: "300",
+  lineHeight: "32px",
+  textAlign: "center"
+}
+
 export const GenericMailboxComponent = ({title, mails, handleClick}) => {
   return (
     <>
-      <h3>{title}</h3>
+      <h3 style={titleStyle}>{title}</h3>
       <div style={cardStyles}>
         <Card>
           {mails.mails.map((msg) => {

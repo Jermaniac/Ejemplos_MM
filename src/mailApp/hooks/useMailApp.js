@@ -3,8 +3,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectMailsReceivedMemoized, selectMailsSentMemoized, selectMailsDeletedMemoized } from "../store/mailApp.selectors";
 
-import { fetchMailsDeleted, fetchMailsReceived, fetchMailsSent } from "../services/mailApp.services";
+//import { fetchMailsDeleted, fetchMailsReceived, fetchMailsSent, fetchMails } from "../services/mailApp.services";
+import { fetchMails } from "../services/mailApp.services";
 import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceivedError, fetchMailsSentError, fetchMailsSentPending, fetchMailsSentSuccess, fetchMailsDeletedPending, fetchMailsDeletedSuccess, fetchMailsDeletedError } from "../store/mailApp.actions";
+
+export const RECEIVED = "received"
+export const SENT = "sent"
+export const DELETED = "deleted"
 
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
@@ -46,9 +51,10 @@ export const useMailApp = () => {
       dispatch(fetchMailsSentPending())
       dispatch(fetchMailsDeletedPending())
 
-      const fetchResultReceived = await fetchMailsReceived(); // llamamos al servicio
-      const fetchResultSent = await fetchMailsSent();
-      const fetchResultDeleted = await fetchMailsDeleted();
+      // llamamos al servicio
+      const fetchResultReceived = await fetchMails(RECEIVED);
+      const fetchResultSent = await fetchMails(SENT);
+      const fetchResultDeleted = await fetchMails(DELETED);
 
       //En funcion del resultado de la peticion http para recibidos, ejecutamos una accion u otra
       if (fetchResultReceived.length > 0){
@@ -84,7 +90,7 @@ export const useMailApp = () => {
       dispatch(fetchMailsSentPending())
 
        // llamamos al servicio
-      const fetchResultSent = await fetchMailsSent();
+      const fetchResultSent = await fetchMails(SENT);
 
       //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
       if (fetchResultSent.length > 0 ){
@@ -97,6 +103,9 @@ export const useMailApp = () => {
     //Finalmente lo llamamos
     initFetchSentMails();
   }, [isSubmit, dispatch]);
+
+  // useEffect( () => {
+  // }, []);
 
   return {
     allMailsReceived,

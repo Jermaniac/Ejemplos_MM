@@ -2,8 +2,9 @@ import Card  from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { CardHeader, IconButton } from '@material-ui/core';
+import { deleteMailFrom, moveMailTo } from '../services/mailApp.services';
 
-export const ViewerComponent = ({mailSelected}) => {
+export const ViewerComponent = ({mailSelected, handleDeleteMail}) => {
 
   const cardStyles = {
     maxHeight:"500px",
@@ -23,17 +24,14 @@ export const ViewerComponent = ({mailSelected}) => {
       {mailSelected && (
         <div style={cardStyles}>
           <Card>
-            <CardHeader
-            title={mailSelected.title}
-            action={
-                <IconButton
-                  onClick={() => console.log(`Deleted mail with id: ${mailSelected.id}`)}
-                >
-                  <DeleteIcon></DeleteIcon>
-                </IconButton>
-              }
-            ></CardHeader>
+            <CardHeader title={mailSelected.title}></CardHeader>
             <CardContent>
+              <IconButton onClick={() => {
+                console.log("ACCION DEL ICONBUTTON DE ELIMINAR");
+                handleDeleteMail(mailSelected);
+                }}>
+                <DeleteIcon></DeleteIcon>
+              </IconButton>
               <div>
                 <h5>From: {mailSelected.author}</h5>
                 <h5>To: {mailSelected.receiver}</h5>

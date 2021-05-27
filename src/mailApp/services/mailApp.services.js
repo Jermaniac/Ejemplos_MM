@@ -1,36 +1,28 @@
 import axios from "axios";
 
-const urlMailReceived = "http://localhost:3000/received";
-const urlMailSent = "http://localhost:3000/sent";
-const urlMailDeleted = "http://localhost:3000/deleted";
+const baseUrl = "http://localhost:3000/";
 
 // aqui se hace la peticion http y devolvera los mails o un error
-export const fetchMailsReceived = () => {
+export const fetchMails = (targetDestination) => {
   return (
     axios
-    .get(urlMailReceived)
+    .get(`${baseUrl}${targetDestination}`)
     .then( (response) => response.data )
     .catch( (error) => error )
   )
 };
 
-export const fetchMailsSent = () => {
-  return (
-    axios
-    .get(urlMailSent)
-    .then( (response) => response.data )
-    .catch( (error) => error )
+// Servicio para mover un mail de una bandeja a otra, o crearlo en una bandeja
+export const moveMailTo = (targetDestination, email) => {
+  axios
+  .post(`${baseUrl}${targetDestination}`,email)
+  .then((response) => console.log(response)
   )
-};
+}
 
-export const fetchMailsDeleted = () => {
-  return (
-    axios
-    .get(urlMailDeleted)
-    .then( (response) => response.data )
-    .catch( (error) => error )
-  )
-};
-
-export const sendMailToSent = (email) => axios.post(urlMailSent,email).then((response) => console.log(response));
-
+// Servicio para mandar un mail a la papelera desde cualquier bandeja
+export const deleteMailFrom = (targetSource, id) => {
+  axios
+  .delete(`${baseUrl}${targetSource}/${id}`)
+  .then( (response) => response.data )
+}

@@ -187,6 +187,14 @@
       "receiver": "me",
       "message": "Meet me at 10 p.m.",
       "category": "received"
+    },
+    {
+      "id": 4,
+      "title": "Se borra?",
+      "author": "Javi",
+      "receiver": "German",
+      "message": "se borra?'??????\n",
+      "category": ""
     }
   ]
 }

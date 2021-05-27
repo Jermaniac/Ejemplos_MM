@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectMailsReceivedMemoized, selectMailsSentMemoized, selectMailsDeletedMemoized } from "../store/mailApp.selectors";
+import { selectStateReceivedMemoized, selectStateSentMemoized, selectStateDeletedMemoized } from "../store/mailApp.selectors";
 
 //import { fetchMailsDeleted, fetchMailsReceived, fetchMailsSent, fetchMails } from "../services/mailApp.services";
 import { fetchMails } from "../services/mailApp.services";
@@ -14,21 +14,14 @@ export const DELETED = "deleted"
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
 
-  // Hook para acceder a redux con un selector
-
-  // TODO:
-  // Constante para cada selector: pending, mails y errors.
-  // Cambiar nombres para que tengan sentido
-  // Test
-  const allMailsReceived = useSelector(selectMailsReceivedMemoized);
-  const allMailsSent = useSelector(selectMailsSentMemoized);
-  const allMailsDeleted = useSelector(selectMailsDeletedMemoized);
+  const {pending: pendingReceived, mails: mailsReceived, error: errorReceived} = useSelector(selectStateReceivedMemoized);
+  const {pending: pendingSent, mails: mailsSent, error: errorSent} = useSelector(selectStateSentMemoized);
+  const {pending: pendingDeleted, mails: mailsDeleted, error: errorDeleted} = useSelector(selectStateDeletedMemoized);
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();
   const [ mailDeletedSelected, setMailDeletedSelected ] = useState();
 
-  const [ isSubmit, setSubmit] = useState(false);
   const [ filledForm, setFilledForm ] = useState({
       id: '',
       title: '',
@@ -82,44 +75,54 @@ export const useMailApp = () => {
     initFetchAllMails();
   }, [dispatch]);
 
-  // Se ejecuta cada vez que enviemos un nuevo mail (cada vez que isSubmit cambia), y va a Enviados
-  useEffect(() => {
-    const initFetchSentMails = async () => {
+  // Hace fetch de los mails en la carpeta de Sent
+  const callFetchSent = async () => {
+    dispatch(fetchMailsSentPending())
+      // llamamos al servicio
+    const fetchResultSent = await fetchMails(SENT);
+    //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
+    if (fetchResultSent.length > 0 ){
+      dispatch(fetchMailsSentSuccess(fetchResultSent))
+    }
+    if(fetchResultSent.length === 0){
+      dispatch(fetchMailsSentError(fetchResultSent));
+    }
+  };
 
-       // ejecuta la accion de pending
-      dispatch(fetchMailsSentPending())
-
-       // llamamos al servicio
-      const fetchResultSent = await fetchMails(SENT);
-
-      //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
-      if (fetchResultSent.length > 0 ){
-        dispatch(fetchMailsSentSuccess(fetchResultSent))
-      }
-      if(fetchResultSent.length === 0){
-        dispatch(fetchMailsSentError(fetchResultSent));
-      }
-    };
-    //Finalmente lo llamamos
-    initFetchSentMails();
-  }, [isSubmit, dispatch]);
-
-  // useEffect( () => {
-  // }, []);
+  // hace fetch de los mails en la carpeta Deleted
+  const callFetchDeleted = async () => {
+    // ejecuta la accion de pending
+    dispatch(fetchMailsDeletedPending());
+    // llamamos al servicio
+    const fetchResultDeleted = await fetchMails("deleted");
+    //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
+    if (fetchResultDeleted.length > 0) {
+      dispatch(fetchMailsDeletedSuccess(fetchResultDeleted));
+    }
+    if (fetchResultDeleted.length === 0) {
+      dispatch(fetchMailsDeletedError(fetchResultDeleted));
+    }
+  }
 
   return {
-    allMailsReceived,
-    allMailsSent,
-    allMailsDeleted,
+    pendingReceived, 
+    mailsReceived, 
+    errorReceived,
+    pendingSent, 
+    mailsSent, 
+    errorSent,
+    pendingDeleted, 
+    mailsDeleted, 
+    errorDeleted,
     mailReceivedSelected,
     setMailReceivedSelected,
     mailSentSelected,
     setMailSentSelected,
     mailDeletedSelected,
     setMailDeletedSelected,
-    isSubmit,
-    setSubmit,
     filledForm,
-    setFilledForm
+    setFilledForm,
+    callFetchSent,
+    callFetchDeleted
   };
 };;

@@ -33,159 +33,161 @@ const modalStyle = {
   justifyContent: 'center',
 }
 
-export const MailAppComponent = (
-  {
-    allMailsReceived,
-    allMailsSent,
-    allMailsDeleted,
-    mailReceivedSelected,
-    setMailReceivedSelected,
-    mailSentSelected,
-    setMailSentSelected,
-    mailDeletedSelected,
-    setMailDeletedSelected,
-    isSubmit,
-    setSubmit,
-    filledForm,
-    setFilledForm,
-    handleDeleteMail,
-    toggleModal,
-    open,
-    setOpen
-  }) => {
+export const MailAppComponent = ({
+  pendingReceived,
+  mailsReceived,
+  errorReceived,
+  pendingSent,
+  mailsSent,
+  errorSent,
+  pendingDeleted,
+  mailsDeleted,
+  errorDeleted,
+  mailReceivedSelected,
+  setMailReceivedSelected,
+  mailSentSelected,
+  setMailSentSelected,
+  mailDeletedSelected,
+  setMailDeletedSelected,
+  filledForm,
+  setFilledForm,
+  toggleModal,
+  open,
+  setOpen,
+  callFetchSent,
+  callFetchDeleted
+}) => {
+  const classes = useStyles();
 
-      const classes = useStyles();
-
-      return (
-        <>
-          <BrowserRouter>
-            <Grid container>
-              <Grid item xs={2}>
-                <div className={classes.root}>
-                  <List component="nav" aria-label="main mailbox folders">
-                    <ListItem button onClick={toggleModal}>
-                      <ListItemIcon>
-                        <CreateIcon />
-                      </ListItemIcon>
-                      <ListItemText primary="New Email" />
-                    </ListItem>
-                    <Link
-                      style={{ textDecoration: "none", color: "black" }}
-                      to="/"
-                    >
-                      <ListItem button>
-                        <ListItemIcon>
-                          <InboxIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Inbox" />
-                      </ListItem>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none", color: "black" }}
-                      to="/sent"
-                    >
-                      <ListItem button>
-                        <ListItemIcon>
-                          <SendIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Sent" />
-                      </ListItem>
-                    </Link>
-                    <Link
-                      style={{ textDecoration: "none", color: "black" }}
-                      to="/deleted"
-                    >
-                      <ListItem button>
-                        <ListItemIcon>
-                          <DeleteIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Deleted" />
-                      </ListItem>
-                    </Link>
-                  </List>
-                </div>
-              </Grid>
-              <Grid item xs={10}>
-                <Modal style={modalStyle} open={open} onClose={toggleModal}>
-                  <div>
-                    <NewEmailContainer
-                      isSubmit={isSubmit}
-                      setSubmit={setSubmit}
-                      filledForm={filledForm}
-                      setFilledForm={setFilledForm}
-                      setOpen={setOpen}
-                    ></NewEmailContainer>
-                  </div>
-                </Modal>
-                <Switch>
-                  <Route exact path="/">
-                    {!allMailsReceived.pending ? (
-                      <Grid container spacing={5}>
-                        <Grid item xs={6}>
-                          <GenericMailboxContainer
-                            title={"Inbox"}
-                            mails={allMailsReceived}
-                            setMailSelected={setMailReceivedSelected}
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <ViewerContainer
-                            mailSelected={mailReceivedSelected}
-                            handleDeleteMail={handleDeleteMail}
-                          />
-                        </Grid>
-                      </Grid>
-                    ) : (
-                      <Spinner></Spinner>
-                    )}
-                  </Route>
-                  <Route exact path="/sent">
-                    {!allMailsSent.pending ? (
-                      <Grid container spacing={5}>
-                        <Grid item xs={6}>
-                          <GenericMailboxContainer
-                            title={"Sent"}
-                            mails={allMailsSent}
-                            setMailSelected={setMailSentSelected}
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <ViewerContainer
-                            mailSelected={mailSentSelected}
-                            handleDeleteMail={handleDeleteMail}
-                          />
-                        </Grid>
-                      </Grid>
-                    ) : (
-                      <Spinner></Spinner>
-                    )}
-                  </Route>
-                  <Route exact path="/deleted">
-                    {!allMailsDeleted.pending ? (
-                      <Grid container spacing={5}>
-                        <Grid item xs={6}>
-                          <GenericMailboxContainer
-                            title={"Deleted"}
-                            mails={allMailsDeleted}
-                            setMailSelected={setMailDeletedSelected}
-                          />
-                        </Grid>
-                        <Grid item xs={6}>
-                          <ViewerContainer
-                            mailSelected={mailDeletedSelected}
-                            handleDeleteMail={handleDeleteMail}
-                          />
-                        </Grid>
-                      </Grid>
-                    ) : (
-                      <Spinner></Spinner>
-                    )}
-                  </Route>
-                </Switch>
-              </Grid>
-            </Grid>
-          </BrowserRouter>
-          <FooterContainer></FooterContainer>
-        </>
-      );
-}
+  return (
+    <>
+      <BrowserRouter>
+        <Grid container>
+          <Grid item xs={2}>
+            <div className={classes.root}>
+              <List component="nav" aria-label="main mailbox folders">
+                <ListItem button onClick={toggleModal}>
+                  <ListItemIcon>
+                    <CreateIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="New Email" />
+                </ListItem>
+                <Link style={{ textDecoration: "none", color: "black" }} to="/">
+                  <ListItem button>
+                    <ListItemIcon>
+                      <InboxIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Inbox" />
+                  </ListItem>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/sent"
+                >
+                  <ListItem button>
+                    <ListItemIcon>
+                      <SendIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Sent" />
+                  </ListItem>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "black" }}
+                  to="/deleted"
+                >
+                  <ListItem button>
+                    <ListItemIcon>
+                      <DeleteIcon />
+                    </ListItemIcon>
+                    <ListItemText primary="Deleted" />
+                  </ListItem>
+                </Link>
+              </List>
+            </div>
+          </Grid>
+          <Grid item xs={10}>
+            <Modal style={modalStyle} open={open} onClose={toggleModal}>
+              <div>
+                <NewEmailContainer
+                  filledForm={filledForm}
+                  setFilledForm={setFilledForm}
+                  setOpen={setOpen}
+                  callFetchSent={callFetchSent}
+                ></NewEmailContainer>
+              </div>
+            </Modal>
+            <Switch>
+              <Route exact path="/">
+                {!pendingReceived ? (
+                  <Grid container spacing={5}>
+                    <Grid item xs={6}>
+                      <GenericMailboxContainer
+                        title={"Inbox"}
+                        mails={mailsReceived}
+                        setMailSelected={setMailReceivedSelected}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <ViewerContainer
+                        mailSelected={mailReceivedSelected}
+                        callFetchSent={callFetchSent}
+                        callFetchDeleted={callFetchDeleted}
+                      />
+                    </Grid>
+                  </Grid>
+                ) : (
+                  <Spinner></Spinner>
+                )}
+              </Route>
+              <Route exact path="/sent">
+                {!pendingSent? (
+                  <Grid container spacing={5}>
+                    <Grid item xs={6}>
+                      <GenericMailboxContainer
+                        title={"Sent"}
+                        mails={mailsSent}
+                        setMailSelected={setMailSentSelected}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <ViewerContainer
+                        mailSelected={mailSentSelected}
+                        callFetchSent={callFetchSent}
+                        callFetchDeleted={callFetchDeleted}
+                      />
+                    </Grid>
+                  </Grid>
+                ) : (
+                  <Spinner></Spinner>
+                )}
+              </Route>
+              <Route exact path="/deleted">
+                {!pendingDeleted ? (
+                  <Grid container spacing={5}>
+                    <Grid item xs={6}>
+                      <GenericMailboxContainer
+                        title={"Deleted"}
+                        mails={mailsDeleted}
+                        setMailSelected={setMailDeletedSelected}
+                      />
+                    </Grid>
+                    <Grid item xs={6}>
+                      <ViewerContainer
+                        mailSelected={mailDeletedSelected}
+                        callFetchSent={callFetchSent}
+                        callFetchDeleted={callFetchDeleted}
+                      />
+                    </Grid>
+                  </Grid>
+                ) : (
+                  <Spinner></Spinner>
+                )}
+              </Route>
+            </Switch>
+          </Grid>
+        </Grid>
+      </BrowserRouter>
+      <FooterContainer></FooterContainer>
+    </>
+  );
+};

@@ -19,12 +19,13 @@ const titleStyle = {
 }
 
 export const GenericMailboxComponent = ({title, mails, handleClick}) => {
+  
   return (
     <>
       <h3 style={titleStyle}>{title}</h3>
       <div style={cardStyles}>
         <Card>
-          {mails.mails.map((msg) => {
+          {mails.map((msg) => {
             return (
               <Card key={msg.id}>
                 <CardActionArea onClick={() => handleClick(msg.id)}>

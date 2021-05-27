@@ -1,15 +1,14 @@
 import { NewEmailComponent } from "../components/NewEmailComponent"
-import {moveMailTo} from '../services/mailApp.services'
+import { moveMailTo } from '../services/mailApp.services'
 import { SENT } from '../hooks/useMailApp' 
 
-export const NewEmailContainer = ({isSubmit, setSubmit, filledForm, setFilledForm, setOpen}) => {
+
+export const NewEmailContainer = ({filledForm, setFilledForm, setOpen, callFetchSent}) => {
 
     const handleSendEmail = (event) => {
         event.preventDefault();
         moveMailTo(SENT, filledForm);
-        console.log(filledForm)
-        setSubmit(!isSubmit);
-        
+        callFetchSent();
         event.target.reset();
         setOpen(false);
         console.log("Email sent!");
@@ -21,6 +20,7 @@ export const NewEmailContainer = ({isSubmit, setSubmit, filledForm, setFilledFor
           [event.target.name] : event.target.value
         })
       }
+
 
     return (
         <NewEmailComponent

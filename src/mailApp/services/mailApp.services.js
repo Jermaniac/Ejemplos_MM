@@ -21,8 +21,13 @@ export const moveMailTo = (targetDestination, email) => {
 }
 
 // Servicio para mandar un mail a la papelera desde cualquier bandeja
-export const deleteMailFrom = (targetSource, id) => {
-  axios
-  .delete(`${baseUrl}${targetSource}/${id}`)
-  .then( (response) => response.data )
+export const deleteMailFrom = (targetSource, mail) => {
+  axios({
+    method: 'delete',
+    url: `${baseUrl}${targetSource}/${mail.id}`,
+    data: mail
+    })
+  // axios
+  // .delete(`${baseUrl}${targetSource}/${id}`)
+  // .then( (response) => response.data )
 }

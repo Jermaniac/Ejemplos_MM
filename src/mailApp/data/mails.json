@@ -35,116 +35,12 @@
   ],
   "sent": [
     {
-      "id": 0,
-      "title": "PRUEBA",
-      "author": "PRUEBA",
-      "receiver": "PRUEBA",
-      "message": "PRUEBA",
-      "category": "sent"
-    },
-    {
-      "id": 1,
-      "title": "Material UI",
-      "author": "Miprimo",
-      "receiver": "german@capgemini.es",
-      "message": "Lets go",
-      "category": "sent"
-    },
-    {
-      "id": 2,
-      "title": "Mis pros",
-      "author": "Javi",
-      "receiver": "Alberto",
-      "message": "Lo que has hecho, no, Lo ,que no has hecho",
-      "category": "sent"
-    },
-    {
-      "id": 3,
-      "title": "ejemplo",
-      "author": "yo",
-      "receiver": "miprimo",
-      "message": "va venga",
-      "category": "sent"
-    },
-    {
-      "id": 4,
-      "title": "EL ultimo",
-      "author": "German",
-      "receiver": "Javi@gmail.com",
-      "message": "Este es el ultimo",
-      "category": "sent"
-    },
-    {
-      "id": 5,
-      "title": "ejemplo3",
-      "author": "remitente",
-      "receiver": "destinatario",
-      "message": "asdasdasdf",
-      "category": "sent"
-    },
-    {
-      "id": 6,
-      "title": "ejemplo3",
-      "author": "asdf",
-      "receiver": "Javi@gmail.com",
-      "message": "asdfasdfa",
-      "category": "sent"
-    },
-    {
-      "id": 7,
-      "title": "Se ve la jugada",
-      "author": "Me",
-      "receiver": "Alfredo",
-      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo.",
-      "category": "sent"
-    },
-    {
-      "id": 8,
-      "title": "Titulo largooooo",
-      "author": "Me",
-      "receiver": "Javi",
-      "message": "Titulo largo\n\n\n\n\n\n\n\nUn saludo.",
-      "category": "sent"
-    },
-    {
-      "id": 9,
-      "title": "Esto es una prueba",
-      "author": "Me",
-      "receiver": "Marcos",
-      "message": "Buenos días,\n\nEsto es una prueba.\n\nUn saludo.",
-      "category": "sent"
-    },
-    {
-      "id": 10,
-      "title": "Prueba nuevo envio",
-      "author": "Mí",
-      "receiver": "Alguien",
-      "message": "Probando",
-      "category": "sent"
-    },
-    {
-      "id": 11,
-      "title": "Prueba de MoveMailTo",
-      "author": "javi",
-      "receiver": "german@capgemini.es",
-      "message": "Probando metodo unificado de mover correos entre bandejas",
-      "category": "sent"
-    },
-    {
-      "id": 12,
-      "title": "Prueba 2 moveMailto",
-      "author": "Me",
-      "receiver": "german@capgemini.es",
-      "message": "prueba 2 a ver si lo hace del tiron",
-      "category": "sent"
-    },
-    {
       "id": 13,
       "title": "Probando filled form",
       "author": "Mi",
       "receiver": "Alguien",
       "message": "Probando filled form",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 14,
@@ -153,14 +49,6 @@
       "receiver": "asdfasdf",
       "message": "asdfasdfasdfasdfasdf se cierra?",
       "category": "sent"
-    },
-    {
-      "id": 15,
-      "title": "a ver si se recarga",
-      "author": "me",
-      "receiver": "prueba",
-      "message": "se recarga?\n",
-      "category": ""
     }
   ],
   "deleted": [
@@ -195,6 +83,62 @@
       "receiver": "German",
       "message": "se borra?'??????\n",
       "category": ""
+    },
+    {
+      "id": 5,
+      "title": "Hola que tal",
+      "author": "German",
+      "receiver": "Delusso",
+      "message": "Esto es una chapuza",
+      "category": ""
+    },
+    {
+      "id": 6,
+      "title": "a ver si se recarga",
+      "author": "me",
+      "receiver": "prueba",
+      "message": "se recarga?\n",
+      "category": ""
+    },
+    {
+      "id": 7,
+      "title": "Prueba de Recibidos",
+      "author": "Me",
+      "receiver": "Marcos",
+      "message": "Prueba 1",
+      "category": ""
+    },
+    {
+      "id": 8,
+      "title": "Se ve la jugada",
+      "author": "Me",
+      "receiver": "Alfredo",
+      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo.",
+      "category": "sent"
+    },
+    {
+      "id": 9,
+      "title": "Probando filled form",
+      "author": "Mi",
+      "receiver": "Alguien",
+      "message": "Probando filled form",
+      "category": ""
+    },
+    {
+      "id": 10,
+      "title": "PRUEBA",
+      "author": "PRUEBA",
+      "receiver": "PRUEBA",
+      "message": "PRUEBA",
+      "category": "sent"
+    },
+    {
+      "id": 11,
+      "title": "Material UI",
+      "author": "Miprimo",
+      "receiver": "german@capgemini.es",
+      "message": "Lets go",
+      "category": "sent"
     }
   ]
 }

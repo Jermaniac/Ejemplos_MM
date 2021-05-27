@@ -24,6 +24,7 @@ export const MailAppContainer = () => {
       setMailDeletedSelected,
       filledForm,
       setFilledForm,
+      callFetchReceived,
       callFetchSent,
       callFetchDeleted
     } = useMailApp();
@@ -58,6 +59,7 @@ export const MailAppContainer = () => {
         toggleModal={toggleModal}
         open={open}
         setOpen={setOpen}
+        callFetchReceived={callFetchReceived}
         callFetchSent={callFetchSent}
         callFetchDeleted={callFetchDeleted}
       ></MailAppComponent>

@@ -54,6 +54,7 @@ export const MailAppComponent = ({
   toggleModal,
   open,
   setOpen,
+  callFetchReceived,
   callFetchSent,
   callFetchDeleted
 }) => {
@@ -132,6 +133,7 @@ export const MailAppComponent = ({
                         mailSelected={mailReceivedSelected}
                         callFetchSent={callFetchSent}
                         callFetchDeleted={callFetchDeleted}
+                        callFetchReceived={callFetchReceived}
                       />
                     </Grid>
                   </Grid>
@@ -154,6 +156,7 @@ export const MailAppComponent = ({
                         mailSelected={mailSentSelected}
                         callFetchSent={callFetchSent}
                         callFetchDeleted={callFetchDeleted}
+                        callFetchReceived={callFetchReceived}
                       />
                     </Grid>
                   </Grid>
@@ -176,6 +179,7 @@ export const MailAppComponent = ({
                         mailSelected={mailDeletedSelected}
                         callFetchSent={callFetchSent}
                         callFetchDeleted={callFetchDeleted}
+                        callFetchReceived={callFetchReceived}
                       />
                     </Grid>
                   </Grid>

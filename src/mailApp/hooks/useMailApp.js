@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectStateReceivedMemoized, selectStateSentMemoized, selectStateDeletedMemoized } from "../store/mailApp.selectors";
+import { selectStateReceivedMemoized, selectStateSentMemoized, selectStateDeletedMemoized, selectStateReceived, selectStateSent, selectStateDeleted } from "../store/mailApp.selectors";
 
 //import { fetchMailsDeleted, fetchMailsReceived, fetchMailsSent, fetchMails } from "../services/mailApp.services";
 import { fetchMails } from "../services/mailApp.services";
@@ -14,9 +14,9 @@ export const DELETED = "deleted"
 // Custom hook que engloba a los demas
 export const useMailApp = () => {
 
-  const {pending: pendingReceived, mails: mailsReceived, error: errorReceived} = useSelector(selectStateReceivedMemoized);
-  const {pending: pendingSent, mails: mailsSent, error: errorSent} = useSelector(selectStateSentMemoized);
-  const {pending: pendingDeleted, mails: mailsDeleted, error: errorDeleted} = useSelector(selectStateDeletedMemoized);
+  const {pending: pendingReceived, mails: mailsReceived, error: errorReceived} = useSelector(selectStateReceived);
+  const {pending: pendingSent, mails: mailsSent, error: errorSent} = useSelector(selectStateSent);
+  const {pending: pendingDeleted, mails: mailsDeleted, error: errorDeleted} = useSelector(selectStateDeleted);
 
   const [ mailReceivedSelected, setMailReceivedSelected ] = useState();
   const [ mailSentSelected, setMailSentSelected ] = useState();
@@ -81,6 +81,7 @@ export const useMailApp = () => {
       // llamamos al servicio
     const fetchResultSent = await fetchMails(SENT);
     //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
+    console.log(fetchResultSent)
     if (fetchResultSent.length > 0 ){
       dispatch(fetchMailsSentSuccess(fetchResultSent))
     }
@@ -104,6 +105,21 @@ export const useMailApp = () => {
     }
   }
 
+    // hace fetch de los mails en la carpeta Deleted
+    const callFetchReceived = async () => {
+      // ejecuta la accion de pending
+      dispatch(fetchMailsReceivedPending());
+      // llamamos al servicio
+      const fetchResultReceived = await fetchMails("received");
+      //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
+      if (fetchResultReceived.length > 0) {
+        dispatch(fetchMailsReceivedSuccess(fetchResultReceived));
+      }
+      if (fetchResultReceived.length === 0) {
+        dispatch(fetchMailsReceivedError(fetchResultReceived));
+      }
+    }
+
   return {
     pendingReceived, 
     mailsReceived, 
@@ -122,6 +138,7 @@ export const useMailApp = () => {
     setMailDeletedSelected,
     filledForm,
     setFilledForm,
+    callFetchReceived,
     callFetchSent,
     callFetchDeleted
   };

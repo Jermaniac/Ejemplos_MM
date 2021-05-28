@@ -131,6 +131,7 @@ export const MailAppComponent = ({
                     <Grid item xs={6}>
                       <ViewerContainer
                         mailSelected={mailReceivedSelected}
+                        setMailSelected={setMailReceivedSelected}
                         callFetchSent={callFetchSent}
                         callFetchDeleted={callFetchDeleted}
                         callFetchReceived={callFetchReceived}
@@ -154,6 +155,7 @@ export const MailAppComponent = ({
                     <Grid item xs={6}>
                       <ViewerContainer
                         mailSelected={mailSentSelected}
+                        setMailSelected={setMailSentSelected}
                         callFetchSent={callFetchSent}
                         callFetchDeleted={callFetchDeleted}
                         callFetchReceived={callFetchReceived}
@@ -177,6 +179,7 @@ export const MailAppComponent = ({
                     <Grid item xs={6}>
                       <ViewerContainer
                         mailSelected={mailDeletedSelected}
+                        setMailSelected={setMailDeletedSelected}
                         callFetchSent={callFetchSent}
                         callFetchDeleted={callFetchDeleted}
                         callFetchReceived={callFetchReceived}

@@ -13,7 +13,8 @@ export const ViewerComponent = ({mailSelected, handleDeleteMail}) => {
     padding: "20px"
   }
   const paragraphStyle= {
-    whiteSpace:"pre-line"
+    whiteSpace:"pre-line",
+    overflowWrap: "break-word"
   }
 
   return (

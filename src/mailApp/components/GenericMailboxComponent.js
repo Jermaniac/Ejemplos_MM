@@ -18,7 +18,7 @@ const titleStyle = {
   textAlign: "center"
 }
 
-export const GenericMailboxComponent = ({title, mails, handleClick}) => {
+export const GenericMailboxComponent = ({title, mails, handleSelectMail}) => {
   
   return (
     <>
@@ -28,7 +28,7 @@ export const GenericMailboxComponent = ({title, mails, handleClick}) => {
           {mails.map((msg) => {
             return (
               <Card key={msg.id}>
-                <CardActionArea onClick={() => handleClick(msg.id)}>
+                <CardActionArea onClick={() => handleSelectMail(msg.id)}>
                   <CardContent>
                     <h4>{msg.title}</h4>
                     <h5>{msg.author}</h5>

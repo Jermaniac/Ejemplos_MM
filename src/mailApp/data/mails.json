@@ -26,7 +26,7 @@
     },
     {
       "id": 3,
-      "title": "Material UI",
+      "title": "[Material UI]: Give me your style",
       "author": "german@capgemini.es",
       "receiver": "me",
       "message": "Incredible styles coming",
@@ -35,109 +35,29 @@
   ],
   "sent": [
     {
-      "id": 13,
+      "id": 0,
       "title": "Probando filled form",
       "author": "Mi",
       "receiver": "Alguien",
       "message": "Probando filled form",
-      "category": "sent"
-    },
-    {
-      "id": 14,
-      "title": "asdfasdf",
-      "author": "asdfasdf",
-      "receiver": "asdfasdf",
-      "message": "asdfasdfasdfasdfasdf se cierra?",
       "category": "sent"
     }
   ],
   "deleted": [
     {
-      "id": 1,
-      "title": "a ver si se recarga",
-      "author": "me",
-      "receiver": "prueba",
-      "message": "se recarga?\n",
-      "category": ""
-    },
-    {
-      "id": 2,
-      "title": "PRUEBA",
-      "author": "PRUEBA",
-      "receiver": "PRUEBA",
-      "message": "PRUEBA",
+      "id": 0,
+      "title": "borra",
+      "author": "borra",
+      "receiver": "borra",
+      "message": "borra",
       "category": "sent"
-    },
+    }
     {
-      "id": 3,
-      "title": "[Meeting with the Feynman friend]",
-      "author": "feynman@myfriend.com",
-      "receiver": "me",
-      "message": "Meet me at 10 p.m.",
-      "category": "received"
-    },
-    {
-      "id": 4,
-      "title": "Se borra?",
+      "id": 1,
+      "title": "Para ti",
       "author": "Javi",
       "receiver": "German",
-      "message": "se borra?'??????\n",
-      "category": ""
-    },
-    {
-      "id": 5,
-      "title": "Hola que tal",
-      "author": "German",
-      "receiver": "Delusso",
-      "message": "Esto es una chapuza",
-      "category": ""
-    },
-    {
-      "id": 6,
-      "title": "a ver si se recarga",
-      "author": "me",
-      "receiver": "prueba",
-      "message": "se recarga?\n",
-      "category": ""
-    },
-    {
-      "id": 7,
-      "title": "Prueba de Recibidos",
-      "author": "Me",
-      "receiver": "Marcos",
-      "message": "Prueba 1",
-      "category": ""
-    },
-    {
-      "id": 8,
-      "title": "Se ve la jugada",
-      "author": "Me",
-      "receiver": "Alfredo",
-      "message": "Buenos días.\n\nSe está viendo la jugada.\n\nUn saludo.",
-      "category": "sent"
-    },
-    {
-      "id": 9,
-      "title": "Probando filled form",
-      "author": "Mi",
-      "receiver": "Alguien",
-      "message": "Probando filled form",
-      "category": ""
-    },
-    {
-      "id": 10,
-      "title": "PRUEBA",
-      "author": "PRUEBA",
-      "receiver": "PRUEBA",
-      "message": "PRUEBA",
-      "category": "sent"
-    },
-    {
-      "id": 11,
-      "title": "Material UI",
-      "author": "Miprimo",
-      "receiver": "german@capgemini.es",
-      "message": "Lets go",
+      "message": "Leelo con cuidado\n\nUn saludo,\nJavi",
       "category": "sent"
     }
   ]

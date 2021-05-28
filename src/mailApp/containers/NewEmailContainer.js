@@ -5,19 +5,21 @@ import { SENT } from '../hooks/useMailApp'
 
 export const NewEmailContainer = ({filledForm, setFilledForm, setOpen, callFetchSent}) => {
 
-    const handleSendEmail = (event) => {
+    const handleSendEmail = async (event) => {
         event.preventDefault();
-        moveMailTo(SENT, filledForm);
+        await moveMailTo(SENT, filledForm);
         callFetchSent();
         event.target.reset();
         setOpen(false);
         console.log("Email sent!");
       }
 
+      // Método que rellena el correo con el contenido del formulario con cada modificacion
       const onFormChange = (event) => {
         setFilledForm({
           ...filledForm,
-          [event.target.name] : event.target.value
+          [event.target.name] : event.target.value,
+          category: "sent"
         })
       }
 

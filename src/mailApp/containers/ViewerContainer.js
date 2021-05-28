@@ -2,29 +2,35 @@ import { ViewerComponent } from "../components/ViewerComponent"
 import { deleteMailFrom, moveMailTo } from '../services/mailApp.services'
 
 
-export const ViewerContainer = ({mailSelected, callFetchSent, callFetchDeleted , callFetchReceived}) => {
+export const ViewerContainer = ({mailSelected, setMailSelected, callFetchSent, callFetchDeleted , callFetchReceived}) => {
     
-    // TODO: REFRESCAR BANDEJA DE SENT 
-    // VERIFICAR QUE EL EMAIL A BORRAR EXISTE
-    const handleDeleteMail = (mailSelected) => {
-      console.log(`Intentando borrar correo con id: ${mailSelected.id}`);
-      deleteMailFrom(mailSelected.category, mailSelected)
-      // const targetDestination = "deleted";
+  // TODO: VERIFICAR QUE EL EMAIL A BORRAR EXISTE
 
-      // const mailObject = {
-      //   ...mailSelected,
-      //   id:""
-      // }
-      // moveMailTo(targetDestination, mailObject);
-      // callFetchDeleted();
-      // console.log(mailSelected.category+" CATEGORIA")
-      // deleteMailFrom(mailSelected.category, mailSelected.id);
-      // if (mailSelected.category === "sent"){
-      //   callFetchSent();
-      // }
-      // else if(mailSelected.category === "received"){
-      //   callFetchReceived();
-      // }
+    const handleDeleteMail = async (mailSelected) => {
+      
+      const newMailSelected = {
+        ...mailSelected,
+        id: ""
+      }
+
+      console.log(mailSelected + "mailSelected nuevo");
+
+      console.log(`Intentando borrar correo con id: ${mailSelected.id}`);
+      await moveMailTo("deleted", newMailSelected);
+      callFetchDeleted();
+      console.log("Movido el mail a la papelera");
+      await deleteMailFrom(mailSelected.category, mailSelected);
+      
+      if(mailSelected.category === "sent"){
+        callFetchSent();
+      }
+      else if(mailSelected.category === "received"){
+        callFetchReceived();
+      }
+
+      setMailSelected(false); // para actualizar el viewer
+      console.log("Borrado de la bandeja de origen");
+    
     };
 
     return(

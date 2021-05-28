@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { selectStateReceivedMemoized, selectStateSentMemoized, selectStateDeletedMemoized, selectStateReceived, selectStateSent, selectStateDeleted } from "../store/mailApp.selectors";
+import { selectStateReceived, selectStateSent, selectStateDeleted } from "../store/mailApp.selectors";
 
-//import { fetchMailsDeleted, fetchMailsReceived, fetchMailsSent, fetchMails } from "../services/mailApp.services";
 import { fetchMails } from "../services/mailApp.services";
 import { fetchMailsReceivedPending, fetchMailsReceivedSuccess, fetchMailsReceivedError, fetchMailsSentError, fetchMailsSentPending, fetchMailsSentSuccess, fetchMailsDeletedPending, fetchMailsDeletedSuccess, fetchMailsDeletedError } from "../store/mailApp.actions";
 
@@ -35,9 +34,10 @@ export const useMailApp = () => {
   // Es un hook que ejecuta las acciones definidas en actions.js
   const dispatch = useDispatch();
 
-  // Hook para el ciclo de vida de los componentes (Equivalente a componentDidMount)
+  // Hook equivalente a componentDidMount
   // Lo que hace es un Get a la bandeja de recibidos y enviados
   useEffect(() => {
+
     const initFetchAllMails = async () => {
 
       dispatch(fetchMailsReceivedPending()); // ejecuta la accion de pending
@@ -45,80 +45,49 @@ export const useMailApp = () => {
       dispatch(fetchMailsDeletedPending())
 
       // llamamos al servicio
-      const fetchResultReceived = await fetchMails(RECEIVED);
-      const fetchResultSent = await fetchMails(SENT);
-      const fetchResultDeleted = await fetchMails(DELETED);
+      await fetchMails(RECEIVED)
+      .then(( (response) => dispatch(fetchMailsReceivedSuccess(response.data)) ))
+      .catch( (error) => dispatch(fetchMailsReceivedError(error)) );
 
-      //En funcion del resultado de la peticion http para recibidos, ejecutamos una accion u otra
-      if (fetchResultReceived.length > 0){
-        dispatch(fetchMailsReceivedSuccess(fetchResultReceived));
-      }
-      if (fetchResultReceived.length === 0) {
-        dispatch(fetchMailsReceivedError(fetchResultReceived));
-      }
+      // llamamos al servicio
+      await fetchMails(SENT)
+      .then(( (response) => dispatch(fetchMailsSentSuccess(response.data)) ))
+      .catch( (error) => dispatch(fetchMailsSentError(error)) );
 
-      //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
-      if (fetchResultSent.length > 0 ){
-        dispatch(fetchMailsSentSuccess(fetchResultSent))
-      }
-      if(fetchResultSent.length === 0){
-        dispatch(fetchMailsSentError(fetchResultSent));
-      }
+      // llamamos al servicio
+      await fetchMails(DELETED)
+      .then(( (response) => dispatch(fetchMailsDeletedSuccess(response.data)) ))
+      .catch( (error) => dispatch(fetchMailsDeletedError(error)) );
 
-      if (fetchResultDeleted.length > 0){
-        dispatch(fetchMailsDeletedSuccess(fetchResultDeleted));
-      }
-      if (fetchResultDeleted.length === 0) {
-        dispatch(fetchMailsDeletedError(fetchResultDeleted));
-      }
     };
     initFetchAllMails();
   }, [dispatch]);
 
-  // Hace fetch de los mails en la carpeta de Sent
+  // Funciones para hacer fetch en Received, Sent y Deleted
+
+  const callFetchReceived = async () => {
+    dispatch(fetchMailsReceivedPending());
+    // llamamos al servicio
+    await fetchMails(RECEIVED)
+    .then(( (response) => dispatch(fetchMailsReceivedSuccess(response.data)) ))
+    .catch( (error) => dispatch(fetchMailsReceivedError(error)) );
+}
+
   const callFetchSent = async () => {
     dispatch(fetchMailsSentPending())
-      // llamamos al servicio
-    const fetchResultSent = await fetchMails(SENT);
-    //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
-    console.log(fetchResultSent)
-    if (fetchResultSent.length > 0 ){
-      dispatch(fetchMailsSentSuccess(fetchResultSent))
-    }
-    if(fetchResultSent.length === 0){
-      dispatch(fetchMailsSentError(fetchResultSent));
-    }
-  };
-
-  // hace fetch de los mails en la carpeta Deleted
-  const callFetchDeleted = async () => {
-    // ejecuta la accion de pending
-    dispatch(fetchMailsDeletedPending());
     // llamamos al servicio
-    const fetchResultDeleted = await fetchMails("deleted");
-    //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
-    if (fetchResultDeleted.length > 0) {
-      dispatch(fetchMailsDeletedSuccess(fetchResultDeleted));
-    }
-    if (fetchResultDeleted.length === 0) {
-      dispatch(fetchMailsDeletedError(fetchResultDeleted));
-    }
+    await fetchMails(SENT)
+    .then(( (response) => dispatch(fetchMailsSentSuccess(response.data)) ))
+    .catch( (error) => dispatch(fetchMailsSentError(error)) );
   }
 
-    // hace fetch de los mails en la carpeta Deleted
-    const callFetchReceived = async () => {
-      // ejecuta la accion de pending
-      dispatch(fetchMailsReceivedPending());
-      // llamamos al servicio
-      const fetchResultReceived = await fetchMails("received");
-      //En funcion del resultado de la peticion http para enviados, ejecutamos una accion u otra
-      if (fetchResultReceived.length > 0) {
-        dispatch(fetchMailsReceivedSuccess(fetchResultReceived));
-      }
-      if (fetchResultReceived.length === 0) {
-        dispatch(fetchMailsReceivedError(fetchResultReceived));
-      }
-    }
+  const callFetchDeleted = async () => {
+    dispatch(fetchMailsDeletedPending());
+    // llamamos al servicio
+    await fetchMails(DELETED)
+    .then(( (response) => dispatch(fetchMailsDeletedSuccess(response.data)) ))
+    .catch( (error) => dispatch(fetchMailsDeletedError(error)) );
+  }
 
   return {
     pendingReceived, 

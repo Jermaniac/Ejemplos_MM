@@ -2,13 +2,11 @@ import axios from "axios";
 
 const baseUrl = "http://localhost:3000/";
 
-// aqui se hace la peticion http y devolvera los mails o un error
+// Peticion http que devuelve los mails
 export const fetchMails = (targetDestination) => {
   return (
     axios
     .get(`${baseUrl}${targetDestination}`)
-    .then( (response) => response.data )
-    .catch( (error) => error )
   )
 };
 
@@ -27,7 +25,4 @@ export const deleteMailFrom = (targetSource, mail) => {
     url: `${baseUrl}${targetSource}/${mail.id}`,
     data: mail
     })
-  // axios
-  // .delete(`${baseUrl}${targetSource}/${id}`)
-  // .then( (response) => response.data )
 }

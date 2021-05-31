@@ -1,17 +1,27 @@
 import { FormControl, Input, TextareaAutosize } from "@material-ui/core";
 
 import React from 'react';
+import { MyButton } from "../styles/MyButton";
 
   const formStyle = {
     backgroundColor:"white",
     padding:"10px"
   }
 
-export const NewEmailComponent = ({handleSendEmail, onFormChange}) => {
+  const titleModalStyle = {
+    fontSize: "30px",
+    fontFamily: "Times New Roman"
+  }
 
+  export const NewEmailComponent = ({handleSendEmail, onFormChange, setOpen}) => {
     return (
-        <div style={formStyle}>
-        <h2 id="modal-title">Send a new message</h2>
+      <div style={formStyle}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <div style={titleModalStyle} id="modal-title">
+            Send a new message
+          </div>
+          <MyButton close={true} onClick={()=>setOpen(false)} text="X"/>
+        </div>
         <form id="modal-body" onSubmit={handleSendEmail}>
           <FormControl required>
             <Input
@@ -55,8 +65,9 @@ export const NewEmailComponent = ({handleSendEmail, onFormChange}) => {
             onChange={onFormChange}
           />
           <br />
-          <Input type="submit" value="Submit"></Input>
+          <MyButton type="submit" text="Submit"/>
+          <MyButton type="reset" text="Reset" color="default"/>
         </form>
       </div>
-    )
+    );
 }

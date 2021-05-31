@@ -28,6 +28,7 @@ export const NewEmailContainer = ({filledForm, setFilledForm, setOpen, callFetch
         <NewEmailComponent
           handleSendEmail={handleSendEmail}
           onFormChange={onFormChange}
+          setOpen = {setOpen}
         ></NewEmailComponent>
     )
 }

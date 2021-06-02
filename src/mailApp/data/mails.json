@@ -1,27 +1,11 @@
 {
   "received": [
     {
-      "id": 0,
-      "title": "[Meeting with the Feynman friend]",
-      "author": "feynman@myfriend.com",
-      "receiver": "me",
-      "message": "Meet me at 10 p.m.",
-      "category": "received"
-    },
-    {
       "id": 1,
       "title": "[IMPORTANT]: Update your CV",
       "author": "peter@capgemini.es",
       "receiver": "me",
       "message": "Please, update your CV asap or you will be fired. Final warning.",
-      "category": "received"
-    },
-    {
-      "id": 2,
-      "title": "[Capgemini]: New courses in MyLearning",
-      "author": "rrhh@capgemini.com",
-      "receiver": "me",
-      "message": "Courses in MyLearning platform have been recently updated. Please take a look at them.",
       "category": "received"
     },
     {
@@ -31,9 +15,34 @@
       "receiver": "me",
       "message": "Incredible styles coming",
       "category": "received"
+    },
+    {
+      "id": 4,
+      "title": "[Meeting with the Feynman friend]",
+      "author": "feynman@myfriend.com",
+      "receiver": "me",
+      "message": "Meet me at 10 p.m.",
+      "category": "received"
+    },
+    {
+      "id": 5,
+      "title": "[Capgemini]: New courses in MyLearning",
+      "author": "rrhh@capgemini.com",
+      "receiver": "me",
+      "message": "Courses in MyLearning platform have been recently updated. Please take a look at them.",
+      "category": "received"
     }
   ],
-  "sent": [],
+  "sent": [
+    {
+      "id": 1,
+      "title": "Restaurame esta",
+      "author": "Javi",
+      "receiver": "German",
+      "message": "crack",
+      "category": "sent"
+    }
+  ],
   "deleted": [
     {
       "id": 5,
@@ -41,7 +50,7 @@
       "author": "German",
       "receiver": "Delusso",
       "message": "Esto es una chapuza",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 6,
@@ -49,7 +58,7 @@
       "author": "me",
       "receiver": "prueba",
       "message": "se recarga?\n",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 8,
@@ -65,7 +74,7 @@
       "author": "Mi",
       "receiver": "Alguien",
       "message": "Probando filled form",
-      "category": ""
+      "category": "sent"
     },
     {
       "id": 10,
@@ -108,19 +117,19 @@
       "category": "sent"
     },
     {
-      "id": 16,
-      "title": "",
-      "author": "",
-      "receiver": "",
-      "message": "",
-      "category": ""
-    },
-    {
       "id": 17,
       "title": "Prueba Dialog",
       "author": "German",
       "receiver": "Javi",
       "message": "Prueba",
+      "category": "sent"
+    },
+    {
+      "id": 18,
+      "title": "asdf",
+      "author": "Javi",
+      "receiver": "german@capgemini.es",
+      "message": "fdsafdsa",
       "category": "sent"
     }
   ]

@@ -1,9 +1,11 @@
 import Card  from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ReplayIcon from '@material-ui/icons/Replay';
 import { CardHeader, IconButton } from '@material-ui/core';
 
-export const ViewerComponent = ({mailSelected, handleDeleteMail}) => {
+
+export const ViewerComponent = ({mailSelected, handleDeleteMail, mailboxTitle, handleRestoreMail}) => {
 
   const cardStyles = {
     maxHeight:"500px",
@@ -32,6 +34,16 @@ export const ViewerComponent = ({mailSelected, handleDeleteMail}) => {
                 }}>
                 <DeleteIcon></DeleteIcon>
               </IconButton>
+              {
+                mailboxTitle==="Deleted" &&
+                  (<IconButton onClick={() => {
+                    console.log("ACCION DEL BOTON DE RECUPERAR CORREO");
+                    handleRestoreMail(mailSelected);
+                    }}>
+                    <ReplayIcon></ReplayIcon>
+                  </IconButton>)
+
+              }
               <div>
                 <h5>From: {mailSelected.author}</h5>
                 <h5>To: {mailSelected.receiver}</h5>

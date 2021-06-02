@@ -37,7 +37,27 @@ export const ViewerContainer = ({ title, mailSelected, setMailSelected, callFetc
       setMailSelected(false); // para actualizar el viewer
     };
 
+    const handleRestoreMail = async (mailSelected) => {
+      
+      const newMailSelected = {
+        ...mailSelected,
+        id: ""
+      }
+      moveMailTo(newMailSelected.category, newMailSelected);
+
+      if(newMailSelected.category === "sent"){
+        callFetchSent();
+      }
+      else if(newMailSelected.category === "received"){
+        callFetchReceived();
+      }
+
+      await deleteMailFrom("deleted", mailSelected);
+      callFetchDeleted();
+      setMailSelected(false); 
+    }
+
     return(
-            <ViewerComponent mailSelected={mailSelected} handleDeleteMail={handleDeleteMail}/>
+            <ViewerComponent mailSelected={mailSelected} handleDeleteMail={handleDeleteMail} mailboxTitle={title} handleRestoreMail={handleRestoreMail}/>
     )
 }

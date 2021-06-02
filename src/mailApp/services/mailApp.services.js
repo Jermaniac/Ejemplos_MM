@@ -14,7 +14,7 @@ export const fetchMails = (targetDestination) => {
 export const moveMailTo = (targetDestination, email) => {
   axios
   .post(`${baseUrl}${targetDestination}`,email)
-  .then((response) => console.log(response)
+  .then((response) => response
   )
 }
 

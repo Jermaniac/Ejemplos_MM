@@ -33,49 +33,8 @@
       "category": "received"
     }
   ],
-  "sent": [
-    {
-      "id": 14,
-      "title": "asdfasdf",
-      "author": "asdfasdf",
-      "receiver": "asdfasdf",
-      "message": "asdfasdfasdfasdfasdf se cierra?",
-      "category": "sent"
-    }
-  ],
+  "sent": [],
   "deleted": [
-    {
-      "id": 1,
-      "title": "a ver si se recarga",
-      "author": "me",
-      "receiver": "prueba",
-      "message": "se recarga?\n",
-      "category": ""
-    },
-    {
-      "id": 2,
-      "title": "PRUEBA",
-      "author": "PRUEBA",
-      "receiver": "PRUEBA",
-      "message": "PRUEBA",
-      "category": "sent"
-    },
-    {
-      "id": 3,
-      "title": "[Meeting with the Feynman friend]",
-      "author": "feynman@myfriend.com",
-      "receiver": "me",
-      "message": "Meet me at 10 p.m.",
-      "category": "received"
-    },
-    {
-      "id": 4,
-      "title": "Se borra?",
-      "author": "Javi",
-      "receiver": "German",
-      "message": "se borra?'??????\n",
-      "category": ""
-    },
     {
       "id": 5,
       "title": "Hola que tal",
@@ -90,14 +49,6 @@
       "author": "me",
       "receiver": "prueba",
       "message": "se recarga?\n",
-      "category": ""
-    },
-    {
-      "id": 7,
-      "title": "Prueba de Recibidos",
-      "author": "Me",
-      "receiver": "Marcos",
-      "message": "Prueba 1",
       "category": ""
     },
     {
@@ -141,11 +92,35 @@
       "category": "sent"
     },
     {
-      "id": 13,
-      "title": "Cuando entramos en proyecto",
-      "author": "JaviGerman",
-      "receiver": "Alberto",
-      "message": "Me estoy aburriendo.\n\nUn saludo.",
+      "id": 14,
+      "title": "asdfasdf",
+      "author": "asdfasdf",
+      "receiver": "asdfasdf",
+      "message": "asdfasdfasdfasdfasdf se cierra?",
+      "category": "sent"
+    },
+    {
+      "id": 15,
+      "title": "Prueba",
+      "author": "German",
+      "receiver": "Alberto Salcedo",
+      "message": "Esto es una prueba.",
+      "category": "sent"
+    },
+    {
+      "id": 16,
+      "title": "",
+      "author": "",
+      "receiver": "",
+      "message": "",
+      "category": ""
+    },
+    {
+      "id": 17,
+      "title": "Prueba Dialog",
+      "author": "German",
+      "receiver": "Javi",
+      "message": "Prueba",
       "category": "sent"
     }
   ]

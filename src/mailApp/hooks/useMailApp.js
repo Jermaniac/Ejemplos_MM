@@ -90,14 +90,14 @@ export const useMailApp = () => {
   }
 
   return {
-    pendingReceived, 
-    mailsReceived, 
+    pendingReceived,
+    mailsReceived,
     errorReceived,
-    pendingSent, 
-    mailsSent, 
+    pendingSent,
+    mailsSent,
     errorSent,
-    pendingDeleted, 
-    mailsDeleted, 
+    pendingDeleted,
+    mailsDeleted,
     errorDeleted,
     mailReceivedSelected,
     setMailReceivedSelected,

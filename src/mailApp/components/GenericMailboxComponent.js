@@ -19,12 +19,14 @@ const titleStyle = {
 }
 
 export const GenericMailboxComponent = ({title, mails, handleSelectMail}) => {
-  
+
   return (
     <>
       <h3 style={titleStyle}>{title}</h3>
       <div style={cardStyles}>
-        <Card>
+      {
+        mails.length>0 ? (
+          <Card>
           {mails.map((msg) => {
             return (
               <Card key={msg.id}>
@@ -38,6 +40,13 @@ export const GenericMailboxComponent = ({title, mails, handleSelectMail}) => {
             );
           })}
         </Card>
+        )
+        : (
+          <div>
+            The {title} inbox is empty!
+          </div>
+        )
+      }
       </div>
     </>
   )
